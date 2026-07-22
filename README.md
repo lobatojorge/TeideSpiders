@@ -1,4 +1,4 @@
-# TeideSpiders: Diversidad de arañas en el Parque Nacional del Teide (1995–2024)
+# Diversidad de arañas en el Parque Nacional del Teide (1995–2024)
 
 Este repositorio contiene el código y los análisis para evaluar la diversidad taxonómica (TD), filogenética (PD) y funcional (FD) de las comunidades de arañas en el Parque Nacional del Teide, comparando los datos obtenidos en los muestreos de 1995 y 2024.
 
