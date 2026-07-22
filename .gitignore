@@ -9,6 +9,9 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 
+# Excepción CRÍTICA: NO ignorar la dummy data (necesaria para CI/CD)
+!output/dummy_data/*.parquet
+
 # Outputs regenerables
 output/plots/
 output/tables/

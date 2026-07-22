@@ -35,6 +35,12 @@ PATH_ARANAS_PARQUET  <- file.path(PROC_DIR, "aranas.parquet")
 PATH_TRAITS_PARQUET  <- file.path(PROC_DIR, "traits.parquet")
 PATH_ZONAS_PARQUET   <- file.path(PROC_DIR, "zonas.parquet")
 
+# --- Dummy Data (para CI/CD y despliegue sin datos reales) -------------------
+DUMMY_DIR            <- file.path(OUT_DIR, "dummy_data")
+PATH_ARANAS_DUMMY    <- file.path(DUMMY_DIR, "aranas_dummy.parquet")
+PATH_TRAITS_DUMMY    <- file.path(DUMMY_DIR, "traits_dummy.parquet")
+PATH_ZONAS_DUMMY     <- file.path(DUMMY_DIR, "zonas_dummy.parquet")
+
 # --- Alias de compatibilidad hacia atrás (scripts de análisis existentes) ----
 # Los scripts de análisis prefieren parquet si existe; si no, xlsx crudo.
 PATH_ARANAS <- PATH_ARANAS_RAW

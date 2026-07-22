@@ -14,46 +14,50 @@ suppressPackageStartupMessages({
 })
 
 # -----------------------------------------------------------------------------
-#' Carga y limpia el dataset principal de arañas
+#' Carga y limpia el dataset principal de arañas (con ingesta defensiva)
 #'
-#' Si existe el archivo Parquet procesado, lo lee directamente (más rápido).
-#' Si no, lee el Excel crudo, elimina columnas no informativas y filtra NA.
-#' Resuelve la duplicación de código de limpieza que existía en los 3 scripts.
+#' 1. Si existe el archivo Parquet procesado, lo lee directamente (más rápido).
+#' 2. Si no, lee el Excel crudo, elimina columnas no informativas y filtra NA.
+#' 3. Si tampoco existe el crudo (ej. GitHub Actions), lee la dummy data en Parquet.
 #'
 #' @param path Ruta al archivo crudo Excel (alias config.R).
-#' @param path_parquet Ruta al archivo Parquet (alias config.R).
+#' @param path_parquet Ruta al archivo Parquet procesado (alias config.R).
+#' @param path_dummy Ruta al archivo Parquet dummy (alias config.R).
 #' @param extra_drop Vector opcional de nombres de columna extra a eliminar.
 #' @return Un tibble limpio.
 # -----------------------------------------------------------------------------
-load_aranas <- function(path = PATH_ARANAS, path_parquet = PATH_ARANAS_PARQUET, extra_drop = NULL) {
+load_aranas <- function(path = PATH_ARANAS_RAW, 
+                        path_parquet = PATH_ARANAS_PARQUET, 
+                        path_dummy = PATH_ARANAS_DUMMY,
+                        extra_drop = NULL) {
 
+  # 1. Carga rápida desde Parquet procesado real
   if (file.exists(path_parquet)) {
-    # Carga rápida desde Parquet
     df <- arrow::read_parquet(path_parquet)
-    
-    if (!is.null(extra_drop)) {
-      df <- dplyr::select(df, -dplyr::any_of(extra_drop))
-    }
-    
+    if (!is.null(extra_drop)) df <- dplyr::select(df, -dplyr::any_of(extra_drop))
     return(df)
   }
 
-  # Fallback a Excel crudo si el Parquet no existe
-  if (!file.exists(path)) {
-    stop("Archivo crudo no encontrado: ", path)
+  # 2. Fallback a Excel crudo (y genera limpieza al vuelo)
+  if (file.exists(path)) {
+    df <- readxl::read_excel(path)
+    to_drop <- c(COLS_DROP, extra_drop)
+    df <- dplyr::select(df, -dplyr::any_of(to_drop)) |>
+      dplyr::rename(Año = Año2) |>
+      dplyr::mutate(N_exx. = as.numeric(N_exx.)) |>
+      tidyr::drop_na()
+    return(df)
   }
 
-  df <- readxl::read_excel(path)
+  # 3. Fallback a Dummy Data (CI/CD)
+  if (file.exists(path_dummy)) {
+    warning("Datos reales no encontrados. Cargando DUMMY DATA. El CI/CD o la App están corriendo en modo demo.")
+    df <- arrow::read_parquet(path_dummy)
+    if (!is.null(extra_drop)) df <- dplyr::select(df, -dplyr::any_of(extra_drop))
+    return(df)
+  }
 
-  to_drop <- c(COLS_DROP, extra_drop)
-  df <- dplyr::select(df, -dplyr::any_of(to_drop))
-
-  df <- df |>
-    dplyr::rename(Año = Año2) |>
-    dplyr::mutate(N_exx. = as.numeric(N_exx.)) |>
-    tidyr::drop_na()
-
-  return(df)
+  stop("ERROR CRÍTICO: No se encontraron datos reales ni dummy. Ejecuta data/create_dummy_data.R")
 }
 
 # -----------------------------------------------------------------------------
