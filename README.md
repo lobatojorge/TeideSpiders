@@ -106,7 +106,7 @@ source("data/create_dummy_data.R")
 
 ## Análisis de datos y visor interactivo (Shiny)
 
-El flujo de trabajo asume que los datos ya están disponibles en formato Parquet. Para ejecutar todos los análisis y preparar el visor interactivo, ejecuta el siguiente bloque de código en orden:
+El flujo de trabajo comprueba que existen datos Parquet. Para ejecutar todos los análisis y preparar el visor interactivo, ejecuta el siguiente bloque de código en orden:
 
 ```R
 # 1. Ejecutar todos los análisis
