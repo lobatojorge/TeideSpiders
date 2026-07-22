@@ -1,0 +1,28 @@
+# Datos regenerables (cacheados por CI/CD)
+output/cache/
+
+# Outputs de figuras y tablas (regenerables)
+output/plots/
+output/tables/
+
+# Archivos temporales de R
+.Rhistory
+.RData
+*.Rproj.user/
+.Rproj.user
+
+# renv (el lockfile SÍ se versiona; la librería NO)
+renv/library/
+renv/staging/
+
+# Quarto
+reports/*_files/
+reports/.quarto/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Datos sensibles (descomentar si se necesita)
+# data/*.xlsx
+# data/RAxML_bestTree.result

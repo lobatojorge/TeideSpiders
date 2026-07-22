@@ -1,0 +1,1076 @@
+RESUMEN
+El presente estudio utiliza datos de muestreos realizados en el Parque Nacional del
+Teide en 1995 y 2024 para comparar la comunidad de arañas mediante tres
+dimensiones de diversidad: taxonómica (TD), filogenética (PD) y funcional (FD). Los
+resultados revelan una notable pérdida de riqueza de especies entre ambos períodos,
+pero no se hallaron cambios significativos en PD ni FD. Muchos de los rasgos
+funcionales de arañas están conservados a nivel de familia, por lo que la alta tasa de
+reemplazamiento de especies entre años de muestreo se amortigua. Los resultados
+obtenidos son fundamentales para el diseño de medidas de gestión efectivas en el
+Parque Nacional del Teide.
+ABSTRACT
+The present study uses data from samplings conducted in Teide National Park in
+1995 and 2024 to compare the state of spider community diversity through three
+dimensions of diversity: taxonomic (TD), phylogenetic (PD), and functional (FD). The
+results reveal a notable loss of species richness between the two periods; however,
+no significant changes were found in PD or FD. Many functional traits of spiders are
+conserved at the family level, so the high species turnover rate is buffered. The
+findings are crucial for designing effective management strategies in Teide National
+Park.
+
+4
+INTRODUCCIÓN
+La defaunación, o pérdida acelerada de especies animales, es uno de los principales
+desafíos que enfrentan los ecosistemas. Ceballos et al. (2015) indican que la tasa de
+extinción de vertebrados durante los últimos 100 años es 100 veces mayor que la tasa
+de extinción de fondo, entendida como la velocidad natural y constante a la que las
+especies se extinguen en ausencia de eventos catastróficos o perturbaciones antrópicas
+significativas. Esto ha llevado a un buen número de autores a sugerir que nos
+enfrentamos a la “sexta extinción” o “extinción del Antropoceno” (Ceballos et al., 2015;
+Pimm et al., 2014). Sin embargo, es fundamental destacar que la investigación en
+extinciones tiene un marcado sesgo a favor de vertebrados y de especies de interés
+comercial (Worm et al., 2006; Cowie et al., 2022; Hortal et al., 2015). Los vertebrados,
+especialmente los mamíferos, suelen captar una mayor cantidad de recursos y fondos
+para investigación en comparación con otros grupos taxonómicos. Este sesgo se debe en
+gran medida, al menor interés público hacia especies que, pese a representar una fracción
+significativamente mayor de la biodiversidad global, son menos carismáticas o más
+difíciles de estudiar y monitorear (Hortal et al., 2015). Un ejemplo claro de este
+desequilibrio se observa en los arácnidos; de las más de 53.000 especies descritas
+(World Spider Catalog, 2025), solo se ha evaluado el estado de conservación de 4.154,
+lo que representa apenas un 8% del total de especies (Milano, 2021). En contraste, el
+100% de las aproximadamente 11.000 especies de aves conocidas han sido evaluadas
+(Janicki et al., 2022). Esta disparidad refleja, principalmente, el escaso conocimiento
+disponible sobre los patrones espaciales y temporales de abundancia y dinámica
+poblacional de muchos invertebrados (Cardoso et al., 2011a). Como resultado, nuestro
+conocimiento sobre vastos grupos animales, especialmente los invertebrados, presenta
+aún grandes vacíos, lo que limita significativamente nuestra capacidad para conservar la
+biodiversidad.
+En los últimos años el esfuerzo de conservación en artrópodos ha aumentado
+considerablemente, evidenciando una disminución dramática en la abundancia de
+insectos a nivel global (Seibold et al., 2019; Sánchez-Bayo y Wyckhuys, 2019). SánchezBayo y Wyckhuys (2019) reportan que más del 40% de las especies evaluadas de
+insectos se encuentran en algún grado de amenaza. Por otra parte, Hallmann et al. (2017)
+reportan un declive del 75% de los insectos voladores en áreas protegidas alemanas
+entre 1990 y 2017. En los ecosistemas insulares este peligro es más notorio, ya que los
+artrópodos enfrentan amenazas inherentes a la insularidad, como la limitada capacidad
+de dispersión, la susceptibilidad a especies invasoras o la fragilidad de hábitats altamente
+especializados (Reaser et al., 2007). En este contexto, la falta de monitoreo y recursos
+dedicados a artrópodos en islas no solo agrava su vulnerabilidad, sino que pone en
+peligro la integridad del conjunto de la red trófica, donde estos organismos desempeñan
+funciones clave (Cardoso et al., 2025). Este riesgo se amplifica en ambientes extremos
+5
+como las zonas de alta montaña, que actúan como "islas dentro de islas" al albergar
+comunidades biológicas únicas adaptadas a condiciones específicas de altitud y clima. En
+este contexto, el Parque Nacional del Teide, un enclave de alta montaña situado en
+Tenerife (Islas Canarias), representa un laboratorio natural para estudiar el declive de las
+poblaciones de artrópodos. Durante los años 1995 y 1996 se realizó un estudio
+exhaustivo de las comunidades de invertebrados del Parque (Oromí et al., 2002). Sin
+embargo, a lo largo de los últimos 30 años no se ha vuelto a realizar ningún estudio sobre
+la comunidad de invertebrados. El presente trabajo analiza cómo la diversidad de arañas,
+un grupo clave para el funcionamiento de los ecosistemas, ha cambiado en este entorno
+a lo largo de casi tres décadas, comparando datos de muestreos realizados en 1995 y
+2024. Las arañas desempeñan funciones esenciales como la regulación de plagas
+agrícolas, el control de especies invasoras y la mitigación de enfermedades transmitidas
+por insectos. Además, contribuyen al reciclaje de nutrientes, sirven como alimento para
+otros depredadores, y generan beneficios culturales y educativos significativos. Su papel
+en la salud de los ecosistemas las convierte en indicadores clave de biodiversidad y
+proveedoras de servicios ecosistémicos cruciales para el bienestar humano (Cardoso et
+al., 2025).
+Para entender cómo ha cambiado la comunidad de arañas en estos últimos 30 años, en
+el presente estudio se analizan los diferentes componentes de la biodiversidad
+taxonómica, filogenética y funcional. La diversidad taxonómica se refiere a la diversidad
+de especies presentes en una comunidad, generalmente estimada como riqueza de
+especies. Tiene limitaciones, ya que las comunidades están compuestas por especies con
+diferentes historias evolutivas (Webb et al., 2002; Graham y Fine, 2008), y que poseen
+diferentes funciones ecológicas (Villéger et al., 2012, 2013). La diversidad filogenética
+incorpora información sobre la historia evolutiva de las especies, revelando qué especies
+están evolutivamente más cercanas dentro de una comunidad (Fine y Kembel, 2011).
+Según Wei et al. (2025), esta dimensión es crucial para entender cómo las especies han
+respondido a procesos históricos y perturbaciones ambientales recientes. La diversidad
+funcional se centra en los rasgos biológicos de las especies (como tamaño corporal, dieta
+o comportamiento) que afectan directamente su papel en el ecosistema (Petchey y
+Gaston, 2006; Schmera et al., 2017). La diversidad funcional puede ser más informativa
+que la taxonómica o filogenética cuando se trata de evaluar la capacidad de un
+ecosistema para mantener servicios ecosistémicos bajo condiciones cambiantes. Por
+ejemplo, dos especies pueden ser taxonómicamente distintas, pero funcionalmente
+redundantes si desempeñan roles similares en el ecosistema. Esta redundancia puede
+amortiguar el impacto de la pérdida de especies sobre el funcionamiento del ecosistema
+(Schmera et al., 2017). En este trabajo se prevé que la comunidad de arañas haya sufrido
+una reducción de riqueza a lo largo de estas tres décadas. Asimismo, se espera una
+disminución de la diversidad filogenética y funcional de la comunidad. Estas hipótesis se
+sustentan en el previsible efecto negativo del aumento de temperaturas (Martín-Esquivel
+6
+et al., 2021) y en la alteración y regresión de la comunidad vegetal (Martín-Esquivel et
+al., 2020) acaecidas a lo largo de los últimos años en el Parque Nacional del Teide.
+OBJETIVOS
+El objetivo general de este estudio es comparar la biodiversidad de la comunidad de
+arañas del Parque Nacional del Teide entre dos años: 1995 y 2024. La biodiversidad se
+estudiará a partir de tres dimensiones: diversidad taxonómica (TD), filogenética (PD) y
+funcional (FD). Los objetivos específicos de este estudio son:
+1. Caracterizar la diversidad taxonómica (TD), filogenética (PD) y funcional (FD) de la
+comunidad de arañas en el P.N. Teide en dos años de estudio (1995 y 2024).
+2. Caracterizar la beta diversidad taxonómica (βTD), filogenética (βPD) y funcional
+(βFD) entre las diferentes localidades del parque en dos años de estudio.
+MATERIAL Y MÉTODOS
+Muestreos de campo
+La metodología de muestreo se basa en la realizada por Oromí et al. (2002), aunque ha
+sido simplificada en aras de conseguir un esfuerzo de muestreo asumible y replicable en
+un futuro. Es por ello que, las 21 estaciones de Oromí et al. (2002) han sido reducidas a
+12 (Figura 1), por la dificultad técnica que suponía su acceso o por la proximidad entre
+estaciones.
+Figura 1. Mapa de las estaciones de muestreo en 2024. De izquierda a derecha se observan: Cruz de Tea (CTE), Cuevas
+Negras (CNE), Escobonal de Boca Tauce (ESC), Pedro Méndez (PME), Barranco del Riachuelo (BCR), Cañada Blanca
+(CBL), Malpaís del Sanatorio (MSA), Minas de San José (MIN), Risco Verde (RVE), Arenas Negras (ANG), El Portillo (POR)
+y Fortaleza (FTZ). El polígono verde delimita el área que abarca el Parque Nacional del Teide.
+7
+El protocolo de muestreo comprende diferentes tipos de muestreo, realizados en dos
+estaciones del año (primavera y otoño) y que pueden agruparse en: pasivos con trampas
+de intercepción y sistemas activos de captura (Figura 2).
+Trampas de intercepción
+● Trampas de caída (pitfall) con cebo. Es una técnica muy eficaz para animales
+epiedáficos. Se emplearon vasos de plástico de 7 cm de profundidad, 5,5 cm de
+diámetro y un volumen de 100 ml. Los vasos de plástico se enterraron en el suelo
+de forma que la parte superior del vaso coincidía con la superficie del suelo. Se
+añadió un cebo (hígado de ternera) y líquido de Turquin (1 l de cerveza, 10 g de
+hidrato de cloral, 5 ml de ácido acético y 2 ml de formol; en 2024 el formol se
+sustituyó por propilenglicol) para conservar los ejemplares. La trampa se cubre con
+una piedra para minimizar la evaporación del líquido y atraer a los artrópodos que
+buscan cobijo bajo la piedra (Figura 2.1). Se coloraron 6 trampas de caída por
+estación de muestreo que permanecieron activas durante 4 días.
+● Trampas plato de colores (pan traps). Se trata de bandejas de colores llamativos para
+los invertebrados (azul, blanco y amarillo). Son de poca profundidad y contienen
+propilenglicol (Figura 2.2). Se colocaron 3 tripletes por estación. Solo se utilizaron en
+los muestreos de 2024. Permanecieron activas durante 4 días.
+● Trampa Window. Consiste en una lámina de acetato transparente de 100x70 cm
+que actúa como pantalla de intercepción y unas cubetas de recepción que se
+disponen bajo ella en el suelo. Las cubetas contienen agua con detergente para
+romper la tensión superficial y así evitar que se escapen ejemplares al caer en la
+cubeta (Figura 2.3). Debido a la dificultad logística, esta trampa sólo se utilizó en los
+muestreos de 1995. Se colocó una trampa por estación durante un período de 4 días.
+● Trampas Malaise. Diseñada para la captura de artrópodos voladores y
+especialmente eficaz para himenópteros y dípteros. Consiste en una malla en forma
+de tienda de campaña con tabiques centrales y sin paredes laterales, de forma que
+los animales voladores que chocan con la malla son dirigidos hacia la parte superior,
+donde caen a un tubo colector que contiene propilenglicol (Figura 2.4). Se colocó una
+trampa por estación de muestreo que permaneció activa durante 4 días.
+8
+Figura 2. Esquema de las distintas trampas de intercepción utilizadas durante los muestreos. 1) Trampa de caída o pitfall;
+2) Pan trap; 3) Trampa Window; 4) Trampa Malaise. Elaboración propia. La fotografía correspondiente a la trampa 3 fue
+adaptada de Cantú-Salazar et al. (2021) y la de la trampa 4 está disponible en
+[https://shop.bugdorm.com/product_info.php?products_id=104].
+Sistemas activos
+● Caza a vista. Observación y colecta directa de artrópodos con un aspirador
+entomológico (Figura 3.1). De forma simultánea 4 personas muestrearon durante 30
+min, de forma que el esfuerzo global fue de 2 h. El caza a vista engloba tanto el
+mangueo como el vareo de vegetación.
+El mangueo consiste en barrer la vegetación con una red entomológica (Figura 3.2a),
+conocida como manga, con movimientos repetitivos. Esto permite capturar
+artrópodos que se encuentran sobre la vegetación o en vuelo cercano. El vareo
+consiste en azotar la vegetación con una vara (Figura 3.2b) mientras la otra mano
+sujeta un paraguas japonés (tela blanca rectangular) que recoge los ejemplares
+desprendidos por los golpes.
+Figura 3. Esquema de los sistemas activos utilizados durante los muestreos: 1) Aspirador entomológico; 2a) Manga
+entomológica; 2b) Vareo.
+9
+Los muestreos se realizaron durante la primavera (mayo-junio) y otoño (septiembreoctubre) de 1995 y 2024. Se realizó un único muestreo por estación y localidad. Todos
+los ejemplares colectados fueron guardados a -20ºC en viales con alcohol absoluto hasta
+su identificación. Cada ejemplar fue identificado a nivel de especie, en la medida de lo
+posible, usando bibliografía taxonómica de referencia (Nentwig et al., 2025; Wunderlich,
+1987, 1991, 1994).
+Extracción, amplificación y secuenciación de ADN
+Se seleccionaron, en la medida de lo posible, 3 ejemplares de cada especie colectados
+en 2024 para su secuenciación. Para la extracción del ADN se extrajeron
+preferentemente patas (1-2 patas en arañas de tamaño grande, y 3-4 en las de tamaño
+mediano), pero en ejemplares pequeños la dificultad técnica obligó a extraer el
+opistosoma. En ambos casos se preservó el resto del ejemplar (voucher) en la colección
+del Departamento de Biología Animal (Zoología) DZUL. Para la realización de la
+extracción de ADN las muestras se dispusieron en una placa de 96 pocillos en las que se
+añadió una solución Chelex 100 Resin (Casquet et al., 2012). Cada pocillo contenía 0,6
+ml agua Molecular Quality (MQ), 0,6 g de Chelex y 3,5 μl de proteinasa K. La placa se
+incubó a 55ºC durante 12 horas.
+Previamente a la amplificación, se realizó una dilución 1:10 del extracto y se usaron 10
+μl de la misma. Para la amplificación de las muestras mediante PCR se utilizaron los
+cebadores LCO1490 (GGTCAACAAATCATAAAGATATTGG) y HCO2198
+(TAAACTTCAGGGTGACCAAAAAATCA) (Folmer et al., 1994) que amplifican un
+fragmento de 658 pares de bases situado en el extremo 5’ del citocromo c oxidasa
+subunidad 1 (COI).
+La reacción de PCR se llevó a cabo en un volumen total de 25 μL. Cada pocillo contenía
+15,4 μL de agua, 2,5 μl de NH4 (en dilución 1:10), 1,5 μl de MgCl2 (3 mM), 2,5 μl de dNTPs
+(2,5 mM), 0,5 μl de BSA, 0,5 μl de cada pareja de cebador (10 mM) y 0,1 μl de ADN
+polimerasa (BioTaq). A este mix se añadieron 2 μl de dilución 1/10 de ADN. Las PCR se
+llevaron a cabo bajo las siguientes condiciones: 95ºC durante 4 minutos; 40 ciclos de
+desnaturalización a 95ºC durante 45 segundos, anillamiento a 42ºC durante 45
+segundos, y extensión de cebadores a 72ºC durante 90 segundos; y una extensión final
+a 72ºC durante 10 minutos. Se comprobó el éxito de la amplificación mediante una
+electroforesis en gel de agarosa al 1%.
+Los fragmentos de ADN amplificados fueron enviados a Macrogen Spain para su
+secuenciación por el método de Sanger. Para aquellas especies que no llegaron a
+amplificar, sus secuencias se obtuvieron de los repositorios de GenBank, de donde
+también se descargaron las secuencias de las especies colectadas en 1995, pues al estar
+conservadas a temperatura ambiente en alcohol 70%, su ADN no mantuvo la calidad
+10
+necesaria para ser secuenciado. Todas las secuencias fueron editadas con el software
+Geneious v. 7.13.
+Reconstrucción del árbol filogenético
+Un árbol filogenético basado solo en las especies muestreadas y el gen COI presentaría
+tres limitaciones principales. Primero, el gen mitocondrial COI tiene una alta tasa de
+mutación por lo que las relaciones filogenéticas profundas no se resuelven (Brown et al.,
+1979; Orsholm, 2024). Segundo, la topología del árbol estaría sesgada por el bajo
+número de especies muestreadas. Tercero, si en una posición nucleotídica los cambios se
+suceden (A→ G, luego G→ T, etc.), resulta imposible inferir cuántos cambios tuvieron lugar
+y, por tanto, se acaba subestimando la verdadera distancia evolutiva entre las secuencias
+(Yang, 2006). Para superar estas limitaciones recurrimos a una matriz backbone
+compuesta por 6 genes, 3 mitocondriales (12S, 16S, COI) y 3 nucleares (H3, 18S, 28S),
+que incluye 1.528 especies de arañas (Macías-Hernández et al., 2020), la cual incluye la
+matriz de Wheeler et al. (2016) (932 especies con los 6 genes anteriores) y 492
+secuencias adicionales de COI y 28S de 122 especies de arañas de la Península Ibérica
+y Macaronesia (ver Macías-Hernández et al., 2020 para más detalles en la metodología).
+En la Figura 4 se detallan los pasos utilizados para la reconstrucción del árbol
+filogenético. En primer lugar (Figura 4.1), las 110 secuencias de nuestra comunidad local
+se alinearon con la matriz backbone de Macías-Hernández et al. (2020) usando el método
+MAFFT con los parámetros FFT-NS-i-x2, y se construyó un árbol de máxima
+verosimilitud (maximum likelihood) (ML) en RAxML-HPC v. 8.2.12 (Stamatakis, 2014) en
+la plataforma online Cipres Science Gateway (Miller, Pfeiffer y Schwartz, 2010). Se
+realizó una partición por genes sobre la matriz concatenada, aplicando el modelo
+evolutivo GTR+CAT para cada gen. En segundo lugar (Figura 4.2), durante la
+reconstrucción filogenética se forzó la topología (haciendo un constraint de los clados
+bien soportados) con el árbol de transcriptomas de Fernández et al. (2018). Este árbol se
+utilizó porque, aunque cuenta con menos especies (153), utiliza una gran cantidad de
+información procedente de transcriptomas, resolviendo con gran soporte las relaciones
+evolutivas de los principales linajes. El árbol resultante se transformó a ultramétrico
+usando la función force.ultrametric (paquete phytools de R; Revell, 2012) para que la
+distancia de todas las especies a la raíz del árbol fuese la misma. Finalmente, realizamos
+tree pruning (paquete ape; Paradis y Schliep, 2019) para quedarnos solo con las especies
+presentes en nuestras comunidades muestreadas. Así obtenemos un árbol filogenético
+11
+(Figura 4.3) con nuestras especies de estudio, sustentado en la topología y el soporte de
+los otros dos árboles.
+Matriz de datos funcionales
+El análisis de la diversidad funcional sigue un esquema análogo al explicado para la
+dimensión filogenética, pero con algunas variaciones. En primer lugar, los datos de
+partida no son secuencias sino una matriz de rasgos funcionales basada en 19 rasgos
+obtenidos de la bibliografía (Cardoso unpublished data). De éstos, diferenciamos tres
+rasgos morfológicos, seis relacionados con el uso y producción de tela, tres asociados a
+la estrategia de caza, tres al tipo de hábitat, y tres referentes a su periodo de actividad y
+dispersión. La Tabla 1 resume los 19 rasgos escogidos.
+Figura 4. Esquema de la construcción del árbol filogenético. (1) Se concatenan las 110 secuencias de la comunidad local
+con la matriz backbone de Macías-Hernández et al. (2020). (2) A continuación se fuerza topología del árbol, haciendo un
+contraint de los clados bien soportados en el árbol filogenético de transcriptomas de Fernández et al. (2018). (3) Finalmente
+se hace ultramétrico y se calculan los índices filogenéticos.
+12
+Tabla 1. Descripción de los rasgos funcionales utilizados en el estudio.
+Rasgo Descripción Tipo de
+variable
+body_lenght
+Distancia entre la parte frontal del prosoma (sin
+incluir los quelíceros) y el final del abdomen (sin
+incluir las hileras)
+Continua
+M_mean Promedio del tamaño corporal medido en individuos
+machos. Continua
+F_mean Promedio del tamaño corporal medido en individuos
+hembras. Continua
+Active_hunter Especies que cazan de forma activa Binaria
+No_web Especies que no construyen tela para cazar. Binaria
+Capture_web Construcción de tela para cazar. Binaria
+Vegetation Colectado en la vegetación Binaria
+Ground Colectado en el suelo. Binaria
+Space_web
+Telarañas tridimensional que no sigue un patrón
+geométrico definido, suspendidas en el espacio
+entre la vegetación.
+Binaria
+Ambush_hunter Especies que cazan esperando inmóviles a que la
+presa pase cerca, sin el uso de telarañas. Binaria
+Dispersal
+Capacidad de dispersión por ballooning (dispersión
+aérea mediante hilos de seda), según Bonte et al.
+(2003), Bell et al. (2005), Blandenier (2009).
+Binaria
+Nocturnal Especies activas durante la noche. Binaria
+Diurnal Especies activas durante el día. Binaria
+Orb_web Telaraña circular con patrón radial típico de familias
+como Araneidae. Binaria
+Sensing_web
+Estructura de seda utilizada para detectar la
+presencia de presas mediante vibraciones, sin
+función directa de captura.
+Binaria
+Euryphagous
+Alimentación generalista. La clasificación se realizó
+a nivel de género siguiendo los criterios descritos en
+Cardoso et al. (2011).
+Binaria
+Stenophagous
+Alimentación especialista. La clasificación se realizó
+a nivel de género siguiendo los criterios descritos en
+Cardoso et al. (2011).
+Binaria
+Tube_web Estructura en forma de tubo o túnel construida con
+seda, generalmente asociada al suelo o grietas. Binaria
+Sheet_web
+Telaraña horizontal o ligeramente inclinada, con
+estructura en forma de manto o sábana, típica de
+familias como Linyphiidae.
+Binaria
+A partir de esta tabla, se construyó una matriz de distancias para generar un
+dendrograma. En primer lugar, los rasgos funcionales continuos se estandarizaron
+mediante la función scale del paquete base de R (R Core Team, 2024a), lo que permitió
+13
+llevarlos a una escala común y evitar que su magnitud afectara desproporcionadamente
+al cálculo de distancias. En segundo lugar, como los rasgos incluían variables de distinto
+tipo (continuas y binarias), se calculó la distancia de Gower (Gower, 1971), mediante la
+función daisy implementada en el paquete cluster (Maechler et al., 2022) y se
+reconstruyó la matriz de distancias. Esta aproximación permite cuantificar la distancia
+funcional entre todas las especies asignando el mismo peso a los diferentes tipos de
+variables (de Bello et al., 2021).
+La construcción del dendrograma requiere asignar una importancia relativa a cada rasgo
+funcional. Para ello se empleó una versión no supervisada del algoritmo Random Forest
+(paquete randomForest; Liaw y Wiener, 2002), que crea múltiples árboles de decisión
+alimentados con subconjuntos aleatorios de datos y variables. De esta forma, se
+consiguieron ponderaciones precisas de los rasgos funcionales, que fueron
+posteriormente normalizadas e incorporadas como pesos (o weights) en el cálculo de la
+distancia de Gower. Con esta matriz de distancias ajustada se construyó el dendrograma
+mediante la función hclust (paquete cluster; R Core Team, 2024b). Sobre este
+dendrograma se calcularon los índices de diversidad funcional explicados más adelante.
+Cálculo de los índices de diversidad taxonómica (TD), filogenética (PD) y
+funcional (FD)
+La diversidad taxonómica se calculó a partir de la riqueza de especies. Para explorar su
+variación temporal y espacial, se realizaron los siguientes análisis: diagramas de cajas
+(boxplot) por año; curvas de acumulación de especies por año, implementadas con el
+paquete vegan (Oksanen et al., 2020); y diagramas de Venn por año, y por año y
+localidad, elaborados con el paquete VennDiagram (Chen y Boutros, 2011). Además,
+para evaluar la composición de las comunidades en ambos años, se realizó un análisis de
+escalamiento multidimensional no métrico (nMDS) utilizando el paquete vegan.
+Sobre el árbol filogenético explicado en la Figura 4 se calcularon tres parámetros: PD,
+MPD y MNTD. La distancia filogenética (PD) es la suma de las longitudes de las ramas
+que conectan todas las especies en un árbol filogenético según Faith (1992). El MPD
+(Mean Pairwise Distance; Webb, 2000) calcula el promedio de las distancias
+filogenéticas entre todas las parejas de especies en una comunidad. El MNTD (Mean
+Nearest Taxon Distance; Webb et al., 2002) mide la distancia promedio entre cada
+especie y su pariente más cercano. Por su parte, para el estudio de la diversidad funcional
+se realizó un dendrograma sobre el que se obtuvo fPD, fMPD y fMNTD (análogos a PD,
+MPD y MNTD). Son el resultado de implementar la metodología utilizada para la
+dimensión filogenética, pero utilizando el dendrograma de los rasgos funcionales. La
+combinación de MPD y MNTD (o de sus análogos fMPD y fMNTD) ofrece una visión
+detallada del árbol porque explican su estructura a distintos niveles. Mientras que MPD
+14
+está más influenciado por la estructura basal del dendrograma, MNTD describe las ramas
+terminales (Webb et al., 2002).
+Como estos índices están estrecha y positivamente correlacionados con la riqueza de
+especies, se utilizaron modelos nulos para evitar sesgos en su interpretación. Los
+modelos nulos generan una distribución bajo una hipótesis de aleatoriedad y, por tanto,
+simulan qué resultados serían esperables si no existiera un patrón biológico real
+(Swenson, 2014). Al comparar el resultado del modelo nulo con los resultados
+observados se puede comprobar si existe un patrón biológico que explique nuestros
+datos (Gotelli, 2020), en tanto que, si no lo hay, lo observado tenderá hacia el modelo
+nulo. Esta comparación se realiza mediante el Standardized Effect Size (SES), que
+calculamos para los 6 índices (PD, MPD, MNTD, fPD, fMPD y fMNTD) mediante el
+paquete picante de R (Kembel et al., 2010). Es el resultado de la diferencia entre el valor
+observado de cada uno de los índices y la media de los valores obtenidos a partir de
+modelos nulos, dividida por la desviación estándar de dichos valores nulos. La expresión
+queda recogida a continuación, donde x representa cada uno de los índices detallados
+anteriormente:
+SES x = (xobs - Xnull)/σnull
+Cuanto mayor sea la diferencia entre el valor observado y el obtenido por el modelo nulo,
+mayor será el valor de SES. Valores cercanos a 0 indican que no existe un patrón biológico
+que explique la distribución de los datos. Se considera que se aleja lo suficiente del
+modelo nulo cuando supera ±1.96 (Mazel et al., 2015) (Figura 5.2). Este umbral responde
+al hecho de que, como el SES sigue una distribución normal estándar, el valor ±1.96
+abarca el 95% central de la distribución (Cumming, 2012), es decir, un valor de
+significancia p-valor < 0.05, es equivalente a un SES >1.96 (o < -1.96) (Mazel et al.,
+2016).
+En el contexto de la diversidad filogenética y funcional, valores de SES menores de -1.96,
+revelan una comunidad con una diversidad filogenética o funcional baja (clustering),
+donde las especies presentan relaciones evolutivas cercanas o rasgos funcionales
+similares (Figura 5.1a) (Mazel et al., 2015; Miller et al., 2017). Este fenómeno suele estar
+asociado con un fuerte filtrado ambiental, que selecciona especies con características
+convergentes adaptadas a condiciones específicas (Swenson, 2011; Götzenberger et al.,
+2016). Por el contrario, valores de SES mayores de 1.96 (valores observados > esperados
+al azar) indican que hay más diversidad de la esperada por azar por el modelo nulo. Esto
+sugiere una comunidad filogenética o funcionalmente dispersa, que en la literatura recibe
+el nombre de overdispersion (Hardy, 2008) (Figura 5.1b), y es reflejo de procesos de
+competencia entre especies cercanamente relacionadas o con funciones similares
+(Swenson, 2011; Mason et al., 2013).
+15
+
+Figura 5. (1) Árbol filogenético esquematizado. (a) Clustering o agrupamiento: indica que las especies están más cercanas
+filogenética o funcionalmente que en una distribución al azar (indican filtrado ambiental), es decir, las especies tienen que
+tener rasgos similares. (b) Overdispersion o sobredispersión: especies más diferentes filogenética o funcionalmente de lo
+esperado al azar. Indica procesos de competencia entre especies diferentes entre sí, que evitan de esta forma competir por
+los recursos. (2) SES toma valores cercanos a 0 cuando la distribución de los datos observados se asemeja a una
+distribución aleatoria generada por el modelo nulo; es decir, cuando no se identifica un patrón biológico subyacente. En
+cambio, si supera 1.96 se aprecia una marcada overdispersion y si es inferior a 1.96 se observa clustering.
+Análisis estadísticos
+El estimador Chao (Chao 1984, 1987) es una herramienta estadística utilizada para
+estimar la riqueza total esperada en un muestreo. Se basa en la frecuencia de especies
+únicas (singletons) y dobles (doubletons) en la muestra. Su utilización en las curvas de
+acumulación de especies ofrece una estimación de cuánta diversidad podría no haber sido
+detectada en los muestreos.
+Para analizar la variación de la riqueza a lo largo del tiempo, se realizaron Modelos
+Lineales Generalizados (GLM, de sus siglas en inglés Generalized Linear Model). Para
+cada modelo se seleccionó la distribución (Poisson o binomial negativa, dado que se trata
+de una variable discreta) con menor Criterio de Información de Akaike (AIC). Para analizar
+el efecto del Año sobre la riqueza observada se realizó un GLM con distribución Poisson.
+Además, se utilizó un GLM con distribución binomial negativa para evaluar la influencia
+de Año, Muestreo y su interacción sobre la riqueza. Este segundo modelo se formuló de
+la siguiente manera:
+Riqueza ∼ Año*Muestreo
+Para los valores de SES de PD, MPD y MNTD, así como para sus análogos de la
+diversidad funcional (fPD, fMPD y fMNTD), también se estudió el efecto de Año,
+Muestreo y su interacción mediante GLM, pero con distribución gaussiana, dado que se
+16
+trata de una variable continua. En caso de que la tabla ANOVA (paquete car; Fox y
+Weisberg, 2019) asociada revelase diferencias significativas se hizo un análisis de
+comparaciones múltiples (test de Tukey; paquete emmeans; Lenth, 2023).
+Para el estudio de la diversidad filogenética y funcional se dividió el parque nacional en
+dos zonas geográficas: una zona oeste (O), que incluye las localidades de Escobonal de
+Boca Tauce, Cañada de Pedro Méndez, Cruz de Tea, Cuevas Negras, Barranco del
+Riachuelo, Cañada Blanca, y una este (E) con Malpaís del Sanatorio, Minas de San José,
+Risco Verde, Arenas Negras, El Portillo y Fortaleza. Esta división está motivada por los
+patrones heterogéneos de cambio climático documentados en el Parque Nacional del
+Teide. El sector suroeste presenta una mayor velocidad de aumento de temperaturas y
+evapotranspiración (Martín-Esquivel et al., 2021), lo que podría estar generando
+diferencias en las comunidades biológicas entre ambos sectores.
+Cálculo de la beta diversidad taxonómica (TD), filogenética (PD) y funcional
+(FD)
+Por último, se calculó la beta diversidad de las tres dimensiones de biodiversidad (TD,
+PD y FD). De esta forma, la beta diversidad taxonómica (βTD) refleja las diferencias de
+composición entre comunidades (Bacaro et al., 2007), la beta diversidad filogenética
+(βPD) evalúa las diferencias en las relaciones evolutivas entre las especies presentes en
+las comunidades (Graham et al., 2008), y la beta diversidad funcional (βFD) estima las
+diferencias entre los rasgos funcionales de las especies entre comunidades (Ricotta &
+Burrascano, 2008). Los componentes de la beta diversidad se calcularon siguiendo el
+enfoque propuesto por Cardoso et al. (2014):
+βtotal=βrepl+βriq
+donde β-reemplazamiento (βrepl) refleja la porción de diversidad debida al reemplazo de
+especies (o bien relaciones evolutivas o funciones) entre comunidades, y β-riqueza (βriq)
+la diferencia en el número total de especies (o relaciones evolutivas o funciones) entre
+comunidades. El valor de βtotal varía entre 0 y 1. Un valor cercano a 0 indica alta similitud
+entre las comunidades, mientras que un valor cercano a 1 sugiere comunidades con
+mayores diferencias (Cardoso et al., 2014).
+En el contexto de la beta diversidad taxonómica, βrepl permite detectar especies únicas
+que están siendo reemplazadas, y un valor alto puede indicar perturbaciones ambientales
+severas, como alteraciones de hábitat o invasiones de especies exóticas (Legendre,
+2014). Por su parte, un aumento en el valor de βriq es resultado de un cambio notable de
+riqueza entre parcelas. Este componente puede guiar estrategias de conservación y
+17
+restauración al identificar qué especies han desaparecido y qué zonas han perdido más
+especies. En el análisis de la beta diversidad filogenética, un valor alto de βrepl significa
+que las especies presentes en la comunidad han sido reemplazadas por otras con
+relaciones evolutivas relativamente lejanas. Esto sugiere que ha habido un cambio
+significativo en la composición filogenética de la comunidad, posiblemente debido a
+procesos de filtrado ambiental que favorecen especies con características evolutivas
+distintas. Por otro lado, la βriq refleja diferencias en el número de linajes evolutivos entre
+las comunidades comparadas. En cuanto a la beta diversidad funcional, valores altos de
+βrepl atestiguan el reemplazo de especies con rasgos funcionales distintos, mientras que
+βriq permite detectar cambios en la cantidad de funciones únicas (Cardoso et al., 2014).
+
+RESULTADOS
+Diversidad taxonómica
+Se colectaron un total de 110 especies, de las cuales 92 se corresponden con el año
+1995, y 49 con el año 2024. La Figura 6 compara la riqueza observada entre 1995 y
+2024. El boxplot muestra que, tanto la mediana como el rango intercuartílico, son
+mayores en 1995. El test ANOVA confirma que el Año tiene un efecto significativo en la
+riqueza observada (p < 0,01), siendo mayor en el año 1995.
+Figura 6. Boxplot de la riqueza observada en 1995 y 2024. (*) p<0,01
+Las curvas de acumulación de especies (Figura 7) completan la visión de la variación de
+la riqueza entre ambos años. En 1995 la curva tiene una pendiente de 12,56, mientras
+que en 2024 desciende a 6,04. Por tanto, en 1995 por cada unidad de esfuerzo de
+muestreo se capturó el doble de especies que en 2024. Teniendo en cuenta los valores
+estimados de Chao para ambos años (217 y 86 especies, respectivamente), en 1995 se
+18
+detectó el 42% de la diversidad que albergaba el parque y en 2024 el 57%. Todo esto
+apunta a una disminución notable de la riqueza, que podría ser aún más acuciante
+teniendo en cuenta que la curva de 1995 parece lejos de estar saturada.
+Figura 7. Curvas de acumulación de especies por año para las 12 localidades de muestreo. En 1995 (azul) la curva es más
+pronunciada y alcanza un valor Chao (número de especies esperadas en función del número de especies raras capturadas)
+de 217, mientras que en 2024 (rojo) el valor se mantiene en 86.
+La Figura 8 muestra la riqueza observada para los distintos tipos de muestreos realizados
+en 1995 y 2024. El test ANOVA revela que el tipo de muestreo influye notablemente en
+la riqueza observada (p<0.01). Por tanto, diferentes métodos capturan distinto número
+de especies, siendo el caza a vista (CV) y la trampa window (W) los que capturan mayor
+riqueza de arañas (Figura 8). Sin embargo, al considerar únicamente el efecto del año, no
+se observan diferencias significativas en la riqueza total entre 1995 y 2024 (p=0.17). Por
+último, la interacción año:muestreo indica que el efecto del tipo de muestreo varía entre
+años (p<0.05). Para averiguar qué tipo de muestreo varía, se realizó un test de Tukey para
+comparaciones múltiples, que concluyó que la riqueza capturada por las trampas pitfall
+sí varía significativamente entre años, siendo mayor en 1995 (p=0.04). Para el resto de
+tipos de muestreo no había diferencias significativas entre años.
+19
+Figura 8. Boxplot de la riqueza observada por año y tipo de muestreo. En el eje OX se observan los tipos de muestreo:
+Caza a Vista (CV), Trampa Malaise (MAL), Pantrap (PAN), Pitfall (PIT) y Window (W). Es importante señalar que en PAN
+solo se empleó en 2024 y que W solo se utilizó en 1995. (*) p<0.05.
+En el diagrama de Venn (Figura 9) se observa que 31 especies (28%) son compartidas
+entre ambos años, mientras que 61 (55%) son únicas de 1995, y 18 (17%) lo son de
+2024. Al desglosar los diagramas de Venn por localidad (Figura 10) se observa que en
+ocho de las doce localidades se reporta una pérdida de especies entre 1995 y 2024. Las
+mayores pérdidas se registran en las localidades de El Portillo (18 spp.), La Fortaleza (17
+spp.) y el Malpaís del Sanatorio (14 spp.), donde el número de especies únicas de 1995
+supera ampliamente al de especies compartidas o únicas de 2024. En contraste, en
+Cuevas Negras y El Escobonal de Boca Tauce se reporta un ligero aumento en el número
+de especies, con más especies únicas de 2024 que de 1995 (4 y 1, respectivamente).
+Figura 9. Diagrama de Venn del número de especies capturadas en ambos años.
+20
+La composición de las comunidades en los dos años se estudió mediante análisis de
+escalamiento multidimensional no métrico (nMDS; Figura 11). Las muestras de 1995 se
+distribuyen más ampliamente en el gráfico que las de 2024, indicando una mayor
+homogeneidad de las comunidades en 2024. Por otro lado, la composición de la
+comunidad ha variado notablemente en las últimas décadas, pues los polígonos de 1995
+y 2024 no se solapan. Muchas localidades han desplazado notablemente en el espacio
+nMDS entre 1995 y 2024.
+Figura 10. Diagrama de Venn por localidad. Los acrónimos corresponden a las localidades: Arenas Negras (ANG), Barranco del
+Riachuelo (BCR), Cruz de Tea (CTE), Minas de San José (MIN), El Portillo (POR), Risco Verde (RVE), Malpaís del Sanatorio (MSA),
+Pedro Méndez (PME), Cañada Blanca (CBL), Cuevas Negras (CNE), Escobonal de Boca Tauce (ESC) y Fortaleza (FTZ).
+21
+Figura 11. Análisis de escalamiento multidimensional no métrico (nMDS) que representa el grado de similitud a nivel
+taxonómico entre ambos años. Los acrónimos corresponden a las localidades: Arenas Negras (ANG), Barranco del
+Riachuelo (BCR), Cruz de Tea (CTE), Minas de San José (MIN), El Portillo (POR), Risco Verde (RVE), Malpaís del Sanatorio
+(MSA), Pedro Méndez (PME), Cañada Blanca (CBL), Cuevas Negras (CNE), Escobonal de Boca Tauce (ESC) y Fortaleza
+(FTZ).
+Diversidad filogenética
+De las 49 especies seleccionadas para secuenciar el gen mitocondrial COI en los
+muestreos de 2024 se obtuvieron secuencias para un total de 33 (67%). Para las 16
+especies restantes y para el total de especies de 1995 las secuencias se descargaron de
+GenBank. Esta base de datos no es completa, y es por ello que, para 15 especies no se
+encontró la secuencia concreta y fue necesario recurrir a la de su pariente más cercano
+dentro del género. Con todo, el alineamiento se construyó a partir de 110 secuencias, de
+las cuales 77 se obtuvieron de GenBank. Este alineamiento consta de 658 pb (fragmento
+barcode) y fue unificado con el alineamiento de COI de Macías-Hernández et al. (2020),
+dando lugar a una matriz de 1.111 pb constituida por 1.473 secuencias. Esta matriz de
+COI se concatenó al alineamiento incluyendo los otros genes (28S, 12S, 16S, 18S y H3),
+se generó una matriz concatenada de 10.347 pb compuesta por 1.638 secuencias, sobre
+la cual se generó un árbol filogenético (Figura 12).
+22
+Figura 12 Árbol filogenético de máxima verosimilitud (maximum likelihood, ML) obtenido mediante el método de RAxML
+que contiene las 110 especies de arañas colectadas en los muestreos. Barra de escala = 1% de cambio sustitucional.
+La Figura 13 compara los valores obtenidos de SES de PD, MPD y MNTD para 1995 y
+2024. Los datos se comparan entre dos zonas geográficas [Oeste (W) y Este (E)] para
+identificar patrones espaciales. No se encontró un efecto significativo del Año, Zona ni de
+su interacción en la evolución temporal de estos parámetros (p>0.05). En general, los
+valores de SES fueron negativos para todos los años y zonas. En la zona Oeste la mediana
+de 1995 supera a la de 2024 en los tres parámetros, pero no puede identificarse un
+patrón análogo en la zona Este. Los valores de MPD presentan valores outliers en la zona
+23
+Oeste. En 2024 la comparación Oeste-Este parece seguir un patrón; en el Este el rango
+intercuartílico es mayor y la mediana, salvo para MPD, también.
+Figura 13. Boxplots de SES de la Pairwise Distance (PD), Mean Pairwise Distance (MPD) y Mean Nearest Taxon Distance
+(MNTD), en las zonas delimitadas Oeste (W) y Este (E).
+Diversidad funcional
+La evolución temporal del valor de SES de fPD, fMPD y fMNTD se representa en la Figura
+14. Al igual que en la dimensión filogenética, el test ANOVA no encontró evidencia de
+efecto del Año, Zona ni su interacción. En términos generales los valores de SES son
+negativos. El fPD muestra poca variación tanto entre años como entre zonas, mientras
+que el fMPD presenta cambios más marcados, especialmente en la zona E, donde los
+valores de SES aumentan notablemente en 2024. Por su parte, el fMNTD también exhibe
+valores negativos, aunque de menor magnitud.
+24
+Los resultados del algoritmo Random Forest se recogen en la Figura 15. El gráfico de la
+izquierda (Mean Decrease Accuracy) muestra el peso de cada variable en la precisión del
+modelo; es decir, cuánto disminuye la exactitud del modelo si se elimina determinada
+variable. Cuanto mayor sea el valor en la gráfica, más importante será la variable. Las
+más importantes son las variables relacionadas con el tamaño corporal de las especies
+(Body_lenght, F_mean y M_mean), seguidos por los tipos de caza Active_hunter y
+No_web, que también son relevantes. El gráfico de la derecha (Mean Decrease Gini)
+muestra qué tan bien es capaz cada variable de separar los datos en grupos homogéneos.
+Un valor alto indica que la variable es efectiva para generar particiones más puras, lo que
+mejora la capacidad del modelo para clasificar correctamente. De nuevo, Body_length,
+F_mean y M_mean son las más importantes y los patrones de caza siguen siendo
+relevantes. A la vista de ambos gráficos, se observa que los rasgos morfológicos son más
+determinantes que las estrategias de caza, el tipo de tela o los patrones de
+comportamiento y, por tanto, deben recibir una ponderación mayor en la matriz de
+distancias. De los tres rasgos morfológicos el Body_lenght es el más determinante. El
+dendrograma resultante se recoge en la Figura 16.
+Figura 14. Boxplots de SES de la functional Pairwise Distance (fPD), functional Mean Pairwise Distance (fMPD) y functional
+Mean Nearest Taxon Distance (fMNTD), en las zonas delimitadas Oeste (W) y Este (E).
+25
+Diversidad Beta
+La Tabla 2 y Figura 17 recogen los datos de diversidad beta desglosada en sus dos
+componentes [reemplazamiento (βrepl) y riqueza (βriq)] para cada uno de los componentes
+de la diversidad taxonómica, filogenética y funcional. Los resultados muestran la
+diferencia de diversidad beta entre 1995 y 2024 para cada una de las doce localidades,
+de forma que cuanto mayor sea el valor, mayor diferencia habrá en esa localidad entre
+Figura 15. Resultado del algoritmo Random Forest. El gráfico de la izquierda (Mean Decrease Accuracy) muestra el peso
+de cada variable en la precisión del modelo. El gráfico de la derecha (Mean Decrease Gini) muestra qué tan bien es capaz
+cada variable de separar los datos en grupos homogéneos.
+Figura 16. Dendrograma realizado a partir de una matriz de rasgos funcionales ponderada con el algoritmo Random
+Forest. Principalmente agrupa a las especies en base a 3 grupos funcionales: arañas de suelo (azul), arañas que
+hacen tela en vegetación (verde) y arañas de gran tamaño (rojo).
+26
+1995 y 2024. En general el componente de reemplazamiento (βrepl) domina sobre el de
+riqueza (βriq) en todas las dimensiones, especialmente en la taxonómica, donde alcanza
+una mediana de 0,70, lo que refleja que al menos la mitad de las localidades
+experimentaron un reemplazamiento muy elevado de especies (Tabla 2 y Figura 17).
+Tabla 2. Beta diversidad taxonómica, filogenética y funcional para las doce localidades entre 1995 y 2024. La beta
+diversidad se descompuso en beta total (βtotal), beta richness (βriq) o riqueza y beta reemplazamiento (βrepl). En la primera
+columna aparecen las localidades: El Escobonal de Boca Tauce (ESC), Pedro Méndez (PME), Cruz de Tea (CTE), Cuevas
+Negras (CNE), Barranco del Riachuelo (BCR), Cañada Blanca (CBL), Malpaís del Sanatorio (MSA), Minas de San José (MIN),
+Río Verde (RVE), Arenas Negras (ANG), El Portillo (POR) y Fortaleza (FTZ).
+Figura 15. Beta diversidad total descompuesta en sus componentes riqueza (riq) y reemplazamiento (repl) para las 12
+localidades y para la dimensión taxonómica (βTD), filogenética (βPD) y funcional (βFD).
+localidad total riq repl total riq repl total riq repl
+ESC 0.96 0.04 0.93 0.58 0.31 0.27 0.48 0.38 0.10
+PME 0.96 0.11 0.86 0.72 0.18 0.54 0.57 0.17 0.41
+CTE 0.79 0.07 0.71 0.52 0.07 0.45 0.45 0.09 0.37
+CNE 0.94 0.24 0.71 0.68 0.02 0.66 0.45 0.14 0.32
+BCR 0.85 0.00 0.85 0.67 0.39 0.28 0.50 0.32 0.17
+CBL 0.97 0.00 0.97 0.58 0.23 0.35 0.35 0.19 0.17
+MSA 0.97 0.42 0.55 0.75 0.09 0.65 0.62 0.13 0.49
+MIN 0.85 0.15 0.69 0.80 0.16 0.64 0.57 0.12 0.45
+RVE 0.81 0.35 0.45 0.71 0.36 0.35 0.58 0.25 0.32
+ANG 0.82 0.07 0.59 0.52 0.08 0.44 0.33 0.01 0.32
+POR 0.89 0.47 0.42 0.68 0.01 0.67 0.39 0.07 0.31
+FTZ 0.91 0.53 0.38 0.76 0.32 0.43 0.67 0.36 0.31
+rango 0.18 0.53 0.59 0.29 0.38 0.40 0.34 0.37 0.39
+mediana 0.89 0.35 0.55 0.71 0.16 0.44 0.57 0.13 0.32
+β TD β PD β FD
+27
+Para facilitar la interpretación de los datos, en la Figura 18 se representó la β diversidad
+total de cada dimensión en cada localidad. La βTD es consistentemente más alta que la
+βPD y βFD, con valores cercanos o superiores a 0,80, lo que indica que la dimensión
+taxonómica es la que más variación interanual presenta. A su vez, la componente
+filogenética es consistentemente más alta que la funcional. Este patrón parece reflejarse
+en la amplitud de los rangos de variación. Mientras que βFD registra el rango más amplio
+(0,34), la dimensión filogenética (0,28) y taxonómica (0,18) presentan rangos más
+reducidos.
+Cañada Blanca (CBL) y Malpaís del Sanatorio (MSA) presentan valores máximos (0,97)
+de βTD. Cabe mencionar que mientras que MSA alcanza valores altos en las otras dos
+dimensiones, los valores de CBL se mantienen bajos. Además, el alto valor de βTD en
+CBL se debe en exclusiva al componente reemplazamiento (Tabla 2; Figura 17).
+La βPD se mantiene por encima de la funcional en las doce localidades y encuentra su
+mínimo en Cruz de Tea (0,52; CTE), que también es el mínimo de la dimensión taxonómica
+(0.79). En Minas de San José (MIN) es donde la βPD alcanza su valor máximo (0,80),
+aunque su valor de diversidad taxonómica es de los más bajos.
+La βFD sigue, en cierta medida, la nube de puntos de la componente filogenética, pero
+presenta mayor amplitud de rango. Su valor máximo se encuentra en Fortaleza (0,67;
+FTZ), que se corresponde a un valor medio de la componente taxonómica, y relativamente
+alto de la filogenética. Arenas Negras (ANG) registra el valor mínimo de la βFD (0,33),
+coincidiendo con uno de los valores más bajos de la componente filogenética (0,52).
+Figura 16. Nube de puntos de los valores de beta diversidad para las tres facetas de la biodiversidad.
+28
+DISCUSIÓN
+El análisis de la biodiversidad filogenética y funcional es fundamental porque
+complementa la interpretación de la dimensión taxonómica y ofrece una visión más
+fidedigna de la comunidad de arañas (Cardoso et al., 2014; Tucker et al., 2018; Chapman
+et al., 2018; Li et al., 2021). Mientras que los datos taxonómicos muestran una reducción
+de la riqueza de especies entre los periodos estudiados, los análisis de los índices
+filogenéticos y funcionales demuestran que no ha habido variación significativa en la
+historia evolutiva ni en la funcionalidad de la comunidad de arañas.
+El estudio de la dimensión taxonómica apunta a un claro empobrecimiento de la
+comunidad de arañas. El boxplot de riqueza por año (Figura 6) muestra una disminución
+general en el número de especies detectadas, que coincide con lo observado en las
+curvas de acumulación (Figura 7). Sus pendientes muestran que, bajo un esfuerzo de
+muestreo constante, en 2024 se capturó la mitad de especies por unidad de esfuerzo que
+en 1995. Esta reducción de la riqueza está explicada por el valor del estimador Chao, que
+disminuye de 217 en 1995 a 86 en 2024, lo que indica una reducción notable de las
+especies raras (singletons y doubletons). Es por ello que, pese a que el porcentaje de
+especies detectadas respecto al total estimado es mayor en 2024 (57%) que en 1995
+(42%), esta diferencia no refleja una mejora en la eficiencia del muestreo. Más bien,
+sugiere que en 2024 encontramos una comunidad más pobre y probablemente más
+homogénea -como muestra el polígono del nMDS- en la que la ausencia de especies
+raras o de baja detectabilidad facilita capturar una mayor proporción del total de especies
+presentes. Esta pérdida de especies raras queda reflejada en los diagramas de Venn
+(Figura 9 y 10), que revelan una pérdida significativa de especies únicas, tanto en el total
+(61 especies), como a escala de parcela.
+Dado que se ha identificado a las trampas pitfall como principales responsables de la
+reducción en las capturas (Figura 7), cabe también considerar que su efectividad se haya
+reducido a consecuencia de cambios ambientales. La eficiencia de este tipo de trampas
+depende del grado de actividad de los organismos, por lo que el aumento de
+temperaturas en los últimos años (Martín-Esquivel et al., 2021) y la aridez (Beguería et
+al., 2025) podría reducir su movimiento y, por tanto, su susceptibilidad a ser capturadas
+por métodos pasivos. Esto explicaría por qué la caza a vista, que es un método activo y
+por tanto permite colectar ejemplares, aunque su movilidad se haya visto reducida, no ha
+sufrido una variación significativa (Figura 8). El caso de las trampas Malaise es particular
+porque, aunque se trate de un método pasivo, y por tanto debería reportar una reducción
+en el número de capturas, el bajo volumen de ejemplares capturados dificulta identificar
+cambios anuales. Además, estas trampas están enfocadas en la captura de insectos
+voladores por lo que el bajo número de capturas de arañas no puede interpretarse como
+el de las pitfall.
+29
+La posible disminución en la eficacia de las trampas pitfall ofrece dos lecturas. En primer
+lugar, que las especies perdidas son principalmente aquellas que se desplazan
+activamente por el suelo, probablemente desarrollando una estrategia de caza activa.
+Este fenómeno es de gran relevancia pues Måsviken et al. (2023b) reportaron una
+relación entre la altitud y la estrategia de caza. En su estudio observaron que la caza
+activa se ve menos favorecida en zonas de gran altitud, posiblemente debido a las
+condiciones ambientales y a la limitación de recursos. En el caso del Parque Nacional del
+Teide, el descenso reportado en la captura de cazadoras activas, junto con el aumento de
+las temperaturas y la aridez (Martín-Esquivel et al., 2021; Beguería et al., 2025) sugiere
+un aumento del filtrado ambiental. En segundo lugar, que las especies perdidas no se
+dispersan por ballooning (dispersión mediante hilos de seda que son arrastrados por el
+viento) y, por tanto, tienen menos capacidad de dispersión. Bell et al. (2005) sugirieron
+que estas especies suelen estar asociadas con nichos ecológicos más estrechos.
+Posiblemente, los cambios en los regímenes de temperatura y humedad (Martín-Esquivel
+et al., 2021; Beguería et al., 2025) han afectado de forma más severa a las especies
+epiedáficas que no se dispersan por ballooning, mientras que no ha habido efecto en
+aquellas especies con alta capacidad de dispersión.
+En otros sistemas ecológicos el filtrado ambiental supone una reducción de la FD (Pitta
+et al., 2019; Carvalho et al., 2019). La hipótesis del empobrecimiento funcional parece
+estar respaldada por la reducción del espacio taxonómico observada en el nMDS (Figura
+11), por la alta tasa de reemplazamiento (βrepl) en las tres dimensiones (Figura 17), y por
+la disminución de las capturas de las trampas pitfall. Además, la sustitución progresiva
+de la retama (Spartocytisus supranubius) por una comunidad de rosalito (Pterocephalus
+lasiospermus) (Martín-Esquivel et al., 2020; Renner et al., 2022) puede estar
+disminuyendo la complejidad ambiental y proporcionando menos microhábitats a las
+arañas (Langellotto y Denno 2004). Sin embargo, y pese a todos estos indicios, nuestro
+estudio no ha encontrado variación significativa en los valores de SES de fPD, fMPD ni
+fMNTD (Figura 14) y -como se discutirá más adelante- los cambios de βFD son los más
+moderados de las tres dimensiones.
+En la mayoría de los casos los valores de SES presentan valores negativos, tanto en la
+dimensión filogenética (Figura 13) como en la funcional (Figura 14). Esto podría
+interpretarse como una comunidad que tiende hacia el agrupamiento o clustering (Figura
+4) filogenético y funcional como respuesta a alteraciones ambientales (Martín-Esquivel
+et al., 2020; Renner et al., 2022) que provocan un aumento del filtrado ambiental. Sin
+embargo, los valores de SES están lejos del umbral de significancia (-1.96) por lo que
+esta hipótesis no puede ser confirmada. De todo esto pueden hacerse varias
+interpretaciones. Primero, y a la vista de todos los factores que apuntan a una disminución
+de FD, es razonable concluir que la alteración se encuentra en un estadio incipiente y que
+solo podrá detectarse en estudios posteriores. Segundo, puede que -debido al fuerte
+30
+filtrado ambiental- la redundancia funcional (distintas especies que presentan mismos
+rasgos funcionales) de la comunidad sea tan alta que una disminución de FD sea poco
+probable pese a la pérdida de riqueza.
+Por otro lado, Martín-Esquivel et al. (2021) reportan que la temperatura ha aumentado
+de forma más acuciante en el sector Oeste del Parque Nacional del Teide. Esto justifica
+la separación por zona geográfica (Oeste-Este) en el análisis de la diversidad filogenética
+y funcional. Simultáneamente, se observa que entre 1995 y 2024 el número de especies
+compartidas no es constante a lo largo de las doce localidades. En 4 de las 6 localidades
+situadas al Oeste el porcentaje de especies compartidas es menor que en el Este (Figura
+9). Este patrón sugiere que las comunidades más occidentales sufren un mayor estrés
+térmico, lo que provoca pérdida de especies y clustering filogenético y funcional como
+respuesta a un aumento del filtrado ambiental. De nuevo, los valores negativos de SES
+parecen apoyar esta hipótesis, aunque no pueden corroborarla por no superar el umbral
+de significancia.
+Es fundamental destacar que en este estudio el reemplazamiento taxonómico no
+consistió en la incorporación de especies asociadas a zonas fuera del Parque Nacional,
+sino a un reordenamiento del propio pool de especies del Parque. De hecho, solo un 17%
+de las especies registradas en la totalidad de los muestreos son exclusivas del año 2024
+(Figura 9), de las cuales solo 3 especies nativas (Araniella maderiana, Mangora acalypha
+(Araneidae) y Pellenes arciger (Salticidae)) no habían sido reportadas antes para el
+Parque. Pitta et al. (2019) sugieren que una disminución en la riqueza taxonómica
+combinada con un alto reemplazamiento podría indicar una pérdida de especies sensibles
+y su sustitución por otras más tolerantes a un aumento del filtrado ambiental.
+La posición relativa de las especies en el dendrograma funcional (Figura 16) sigue en
+gran medida la del árbol filogenético (Figura 12), lo que apoya la hipótesis de que la
+diversidad funcional y filogenética están correlacionadas (Hacala et al., 2021). Cabe
+destacar que el agrupamiento en el dendrograma no responde únicamente a rasgos
+morfológicos, como Body_lenght sino a rasgos de menor importancia para el Random
+Forest, como el estilo de vida o el tipo de tela. Mientras que el clado marcado en rojo
+(Figura 16), que engloba un menor número de especies, agrupa a especies de mayor
+tamaño, el grupo azul está compuesto por arañas de suelo y el verde engloba especies
+que hacen tela en la vegetación. Queda evidenciado, por tanto, que el efecto de los tres
+rasgos morfológicos acaba siendo compensado por el efecto conjunto del resto de rasgos
+funcionales, que, aunque menos importantes, son más numerosos. Para mejorar el
+dendrograma funcional sería necesario aumentar el número de rasgos morfológicos (por
+ejemplo, longitud de patas, de los quelíceros, etc.) (Macías-Hernández et al., 2020) o,
+alternativamente, eliminar aquellos altamente correlacionados. Además, otro aspecto
+que podría mejorar la resolución del árbol funcional, es la toma de medidas morfológicas
+31
+de ejemplares colectados en las parcelas de estudio (actualmente en curso), no basados
+en datos bibliográficos. Es de destacar que algunos rasgos funcionales están asignados
+a nivel de familia o género, lo que puede hacer perder información a nivel de especie. Por
+lo tanto, la toma de datos de más variables morfológicas y a nivel específico, podría
+mejorar la estima de la diversidad funcional.
+La Tabla 2 revela diferencias notables entre las tres dimensiones de beta diversidad
+estudiadas: βTD, βPD y βFD. La beta diversidad taxonómica es consistentemente más
+alta que las otras dos dimensiones y el componente reemplazamiento (βrepl) domina en
+las tres, como ocurre en otros estudios (Almeida et al., 2024; Pitta et al., 2019; GarcíaNavas et al., 2024). Este patrón indica que la comunidad de arañas ha sufrido un notable
+reemplazo de especies en las 12 localidades, que se ha visto acompañado de cambios
+moderados en la dimensión filogenética y mucho más bajos en la funcional. Estudios
+previos que analizan la relación entre estos tres componentes de la beta diversidad
+(Villéger et al., 2013; Almeida et al., 2024; Pitta et al., 2019) trabajan con escalas
+espaciales mucho mayores (ríos, llanuras, etc.) y no realizan comparaciones temporales.
+Sin embargo, sus resultados son extrapolables porque los procesos subyacentes —como
+el filtrado ambiental y la competencia— operan de manera similar independientemente
+de la escala espacial o temporal.
+Los altos valores de βTD se explican por un proceso de redundancia funcional y
+filogenética. Aunque la tasa de reemplazamiento (βrepl) sea alta en TD (Figura 17-18), los
+reemplazos ocurren entre especies de la misma familia o género que, en su mayoría,
+comparten rasgos funcionales similares (Cardoso et al., 2011b). Este fenómeno también
+fue documentado por Pitta et al. (2019), quienes reportaron que gradientes de
+temperatura propician reemplazos de especies, pero no de familias. Esta redundancia,
+tanto filogenética como funcional, amortigua los cambios en PD y FD (Wu et al., 2022;
+Mouillot et al., 2013), lo que explica por qué los valores de βTD son altos mientras que
+los de βPD y βFD son progresivamente más bajos (Almeida et al., 2024; Villéger et al.
+2013). Un claro ejemplo de lo explicado se encuentra en Cañada Blanca (CBL), que
+presenta una βTD extremadamente alta (0.97) y valores considerablemente bajos de las
+otras dos dimensiones (Figura 18).
+La amplitud del rango de las tres componentes (Figura 17-18) revela patrones
+interesantes sobre la dinámica de la comunidad. Si bien βTD presenta la mayor variación
+entre años -pues cuenta con los valores de beta diversidad más altos- muestra al mismo
+tiempo el rango más reducido (0,18), lo que indica poca variabilidad entre las localidades.
+Esto sugiere que todas las localidades están expuestas a una alta tasa de
+reemplazamiento de especies y que este cambio afecta de forma homogénea a todas las
+localidades. En cambio, la dimensión funcional muestra poca variación entre años, pero
+con un amplio rango (0,34). Esto supone que, aunque el reemplazo de especies tiende a
+mantener las funciones ecológicas de la comunidad, el proceso no es completamente
+32
+efectivo en todas las parcelas. Como resultado, se observan grandes diferencias en la
+βFD entre localidades.
+Al estudiar la comunidad de arañas en bosques templados Måsviken et al. (2023a)
+reportaron que la vegetación (árbol/matorral y cobertura vegetal) es el factor
+determinante de las tres componentes de la biodiversidad. Su estudio, además, indica
+que las condiciones ambientales son especialmente explicativas de la dimensión
+filogenética y funcional. En la misma línea, Más et al. (2009) encontraron una fuerte
+correlación entre la riqueza de arañas y el tipo de cobertura vegetal, sugiriendo que la
+estructura del hábitat (entendida como la disposición y variedad de componentes, tales
+como árboles o arbustos) es crítica para sostener la diversidad de la comunidad de
+arañas. Podgaiski et al., (2013) indica que un aumento de la diversidad funcional de la
+comunidad de plantas conlleva un incremento de la abundancia de arañas y de su
+diversidad funcional. Estos estudios son de gran relevancia pues la comunidad vegetal
+del Parque Nacional del Teide muestra signos de clara alteración. Por un lado, al
+comparar la vegetación actual con la reportada por Alexander von Humboldt en 1817,
+que recoge anotaciones de su visita en 1799 y de las de von Buch y Smith en 1815, se
+observa que 23 especies han visto su rango superior de distribución desplazado a cotas
+más altas a una media de 36,4 m por década (Renner et al., 2022). En la misma línea, la
+retama del Teide (Spartocytisus supranubius) se ve negativamente afectada por el
+cambio climático y los herbívoros introducidos, al mismo tiempo que ciertas especies del
+pinar se están expandiendo a cotas del Parque Nacional (Martín-Esquivel et al., 2020).
+En base a la literatura consultada, estos cambios en la comunidad vegetal podrían ser
+responsables, o en cierta medida favorecer, la alteración de la comunidad de arañas. Por
+tanto, sería altamente interesante estudiar esta hipótesis y determinar qué factores
+bióticos (diversidad de plantas vasculares, complejidad de la comunidad vegetal)
+(Måsviken et al., 2023), y abióticos (temperatura, precipitación) (Måsviken et al., 2023)
+afectan en mayor medida a la comunidad de arañas del Parque Nacional del Teide.
+El presente estudio es pionero al ser el primero en analizar temporalmente una
+comunidad de artrópodos, evaluando tanto la diversidad α como β desde las dimensiones
+taxonómica, filogenética y funcional. Como su objetivo es actualizar el estado de
+conservación de la comunidad de arañas del Parque Nacional del Teide, tiene un enfoque
+principalmente descriptivo y no profundiza en aspectos que se tendrán en cuenta en
+estudios posteriores. Más allá del análisis del efecto de las condiciones climáticas y
+bióticas en la comunidad, el estudio sería más completo si utilizara rasgos funcionales de
+ejemplares colectados en el propio Parque Nacional. Por otro lado, a falta de estudios
+análogos en otros sistemas insulares, sería interesante repetir los muestreos de manera
+periódica. Esto permitiría reducir el sesgo producido por eventos climáticos que, aunque
+cada vez más comunes, son inusuales en la serie histórica, como las olas de calor o las
+nevadas escasas, acaecidas en los últimos años. A pesar de estas limitaciones, este
+33
+estudio es fundamental porque contribuye a reducir las vastas lagunas de conocimiento
+sobre extinciones en artrópodos, un grupo altamente vulnerable, pero infraestudiado en
+términos de conservación. Además, proporciona una base sólida para diseñar estrategias
+de conservación efectivas en ecosistemas insulares tan singulares como el Parque
+Nacional del Teide.
+CONCLUSIONES
+1. La riqueza de especies de arañas en el Parque Nacional del Teide ha disminuido
+entre 1995 y 2024. En 1995 cada localidad albergaba un conjunto característico
+de especies, que ya no es reconocible en 2024.
+2. Todas las localidades muestran una alta tasa de reemplazamiento (βTDrepl) que no
+responde a la llegada de especies alóctonas al Parque, sino a un reordenamiento y
+homogeneización de las especies que antaño conformaban cada localidad.
+3. La disminución de las capturas de las trampas pitfall sugiere que gran parte de las
+especies perdidas son epiedáficas, lo que probablemente esté relacionado con su
+menor capacidad de dispersión.
+4. Las especies nativas Araniella maderiana, Mangora acalypha (Araneidae) y
+Pellenes arciger (Salticidae) son nuevas citas para el Parque.
+5. La comunidad podría presentar signos iniciales de una transición hacia el
+agrupamiento filogenético o funcional debido a un filtrado ambiental.
+6. Los cambios en FD están amortiguados por el fenómeno de redundancia funcional,
+que responde al hecho de que muchos rasgos funcionales están conservados a
+nivel de familia.
+34
+BIBLIOGRAFÍA
+Bacaro, G., Ricotta, C., & Mazzoleni, S. (2007). Measuring beta-diversity from taxonomic similarity.
+Ecography, 30(2), 200–210. https://doi.org/10.1111/j.1654-1103.2007.tb02595.x
+Bell, J. R., Bohan, D. A., Shaw, E. M., & Weyman, G. S. (2005). Ballooning dispersal using silk:
+World fauna, phylogenies, genetics and models. Bulletin of Entomological Research, 95, 69–114.
+https://doi.org/10.1079/ber2004350
+Brown, W. M., George, M., Jr., & Wilson, A. C. (1979). Rapid evolution of animal mitochondrial
+DNA. Proceedings of the National Academy of Sciences of the United States of America, 76(4),
+1967–1971. https://doi.org/10.1073/pnas.76.4.1967
+Cantú Salazar, L., Vray, S., L’Hoste, L., Jakubzik, A., & Herrera Mesías, F. (2021). An addition to the
+list of wild bee fauna of Luxembourg: Nomada kohli Schmiedeknecht, 1882 (Hymenoptera,
+Apidae), with a list of the species of the genus Nomada Scopoli, 1770 recorded in the country.
+Bulletin de la Société des naturalistes luxembourgeois, 123, 195–204.
+Cardoso, P., Erwin, T. L., Borges, P. A. V., & New, T. R. (2011b). The seven impediments in
+invertebrate conservation and how to overcome them. Biological Conservation, 144, 2647–2655.
+https://doi.org/10.1016/j.biocon.2011.07.024
+Cardoso, P., Pekár, S., Jocqué, R., & Coddington, J. A. (2011a). Global patterns of guild composition
+and functional diversity of spiders. PLOS ONE, 6(6), e21710.
+https://doi.org/10.1371/journal.pone.0021710
+Cardoso, P., Rigal, F., Carvalho, J. C., Fortelius, M., Borges, P. A. V., Podani, J., & Schmera, D. (2014).
+Partitioning taxon, phylogenetic and functional beta diversity into replacement and richness
+difference components. Journal of Biogeography, 41(4), 749–761.
+https://doi.org/10.1111/jbi.12221
+Carlo, R., Sabina, B., & Moro, P. A. (2008). Beta diversity for functional ecology. Preslia, 80, 61–71.
+Ceballos, G., Ehrlich, P. R., Barnosky, A. D., García, A. J., Pringle, R. M., & Palmer, T. M. (2015).
+Accelerated modern human–induced species losses: Entering the sixth mass extinction. Science
+Advances, 1(5), e1400253. https://doi.org/10.1126/sciadv.1400253
+Chao, A. (1984). Nonparametric estimation of the number of classes in a population. Scandinavian
+Journal of Statistics, 11, 265–270.
+Chao, A. (1987). Estimating the population size for capture-recapture data with unequal
+catchability. Biometrics, 43, 783–791.
+Chapman, P. M., Tobias, J. A., Edwards, D. P., & Davies, R. G. (2018). Contrasting impacts of land‐
+use change on phylogenetic and functional diversity of tropical forest birds. Journal of Applied
+Ecology, 55(4), 1604–1614. https://doi.org/10.1111/1365-2664.13073
+35
+Chen, H., & Boutros, P. C. (2011). VennDiagram: A package for the generation of highlycustomizable Venn and Euler diagrams in R. BMC Bioinformatics, 12, 35.
+https://doi.org/10.1186/1471-2105-12-35
+Cowie, R. H., Bouchet, P., & Fontaine, B. (2022). The Sixth Mass Extinction: Fact, fiction or
+speculation? Biological Reviews, 97(2), 640–663. https://doi.org/10.1111/brv.12816
+Cumming, G. (2012). Understanding the new statistics: Effect sizes, confidence intervals, and
+meta-analysis. Routledge.
+Ernst, C. M., Loboda, S., & Buddle, C. M. (2016). Capturing northern biodiversity: Diversity of arctic,
+subarctic and north boreal beetles and spiders are affected by trap type and habitat. Insect
+Conservation and Diversity, 9, 63–73. https://doi.org/10.1111/icad.12143
+Faith, D. P. (1992). Conservation evaluation and phylogenetic diversity. Biological Conservation,
+61, 1–10. https://doi.org/10.1016/0006-3207(92)91201-3
+Fernández, R., Kallal, R. J., Dimitrov, D., Ballesteros, J. A., Arnedo, M. A., Giribet, G., & Hormiga, G.
+(2018). Phylogenomics, diversification dynamics, and comparative transcriptomics across the
+spider tree of life. Current Biology, 28(9), 1489–1497.e5.
+https://doi.org/10.1016/j.cub.2018.03.064
+Fine, P. V. A., & Kembel, S. W. (2013). Phylogenetic community structure and phylogenetic
+turnover across space and edaphic gradients in western Amazonian tree communities. Ecography,
+36(7), 720–731. https://doi.org/10.1111/j.1600-0587.2010.06548.x
+Fox, J., & Weisberg, S. (2019). An R companion to applied regression (3rd ed.). SAGE Publications.
+https://socialsciences.mcmaster.ca/jfox/Books/Companion/
+García-Navas, V., Martínez-Núñez, C., Christidis, L., & Ozgul, A. (2024). Turnover of bird species
+along the Nullarbor Plain: Insights from taxonomic, phylogenetic, and functional beta diversity.
+Ecosphere, 15(7), e4910. https://doi.org/10.1002/ecs2.4910
+Gotelli, N. J. (2000). Null model analysis of species co-occurrence patterns. Ecology, 81(9), 2606–
+2621. https://doi.org/10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2
+Gower, J. C. (1971). A general coefficient of similarity and some of its properties. Biometrics, 27(4),
+857–871. https://doi.org/10.2307/2528823
+Götzenberger, L., Botta-Dukát, Z., Lepš, J., Pärtel, M., Zobel, M., & de Bello, F. (2016). Which
+randomizations detect convergence and divergence in trait-based community assembly? A test of
+commonly used null models. Journal of Vegetation Science, 27, 1275–1287.
+https://doi.org/10.1111/jvs.12425
+Graham, C. H., & Fine, P. V. A. (2008). Phylogenetic beta diversity: Linking ecological and
+evolutionary processes across space in time. Ecology Letters, 11(5), 579–592.
+https://doi.org/10.1111/j.1461-0248.2008.01182.x
+36
+Hortal, J., de Bello, F., Diniz-Filho, J. A. F., Lewinsohn, T. M., Lobo, J. M., & Ladle, R. J. (2015). Seven
+shortfalls that beset large-scale knowledge of biodiversity. Annual Review of Ecology, Evolution,
+and Systematics, 46, 523–549. https://doi.org/10.1146/annurev-ecolsys-112414-054400
+Janicki, J., Dickie, G., Scarr, S., y Chowdhury, J. (2022, December 6). The collapse of insects. Reuters
+Graphics. Recuperado de [https://www.reuters.com/graphics/GLOBAL-ENVIRONMENT/INSECTAPOCALYPSE/egpbykdxjvq/]
+Jiménez-Valverde, A., & Lobo, J. M. (2007). Determinants of local spider (Araneidae and
+Thomisidae) species richness on a regional scale: climate and altitude vs. habitat structure.
+Ecological Entomology, 32, 113–122. https://doi.org/10.1111/j.1365-2311.2006.00848.x
+Legendre, P. (2014). Replacement and richness difference components. Global Ecology and
+Biogeography, 23, 1324-1334. https://doi.org/10.1111/geb.12207
+Lenth, R. (2023). emmeans: Estimated Marginal Means, aka Least-Squares Means (R package
+version 1.8.8). https://CRAN.R-project.org/package=emmeans
+Liaw, A., & Wiener, M. (2002). Classification and regression by randomForest. R News, 2(3), 18–
+22. https://CRAN.R-project.org/package=randomForest
+Li, C., Wang, X., Zhang, B., Cui, P., Feng, G., & Svenning, J. (2021). Decomposing multiple βdiversity reveals non-random assembly of the waterbird communities across anthropogenic
+subsidence wetlands. Diversity and Distributions, 28(8), 1694–1705.
+https://doi.org/10.1111/ddi.13396
+Li, Z., Heino, J., Zhang, J., Ge, Y., Liu, Z., & Xie, Z. (2023). Unravelling the factors affecting multiple
+facets of macroinvertebrate beta diversity in the world's third pole. Journal of Biogeography, 50(4),
+792–804. https://doi.org/10.1111/jbi.14574
+Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M., & Hornik, K. (2022). cluster: Cluster Analysis
+Basics and Extensions (R package version 2.1.4). https://CRAN.R-project.org/package=cluster
+Martín Esquivel, J. L., Marrero Gómez, M. V., Cubas, J., González-Mancebo, J. M., Olano, J. M., & del
+Arco Aguilar, M. J. (2020). Climate warming and introduced herbivores disrupt alpine plant
+community of an oceanic island (Tenerife, Canary Islands). Plant Ecology, 221(2), 1117–1131.
+https://doi.org/10.1007/s11258-020-01066-5
+Mason, N. W. H., De Bello, F., Mouillot, D., Pavoine, S., & Dray, S. (2013). A guide for using
+functional diversity indices to reveal changes in assembly processes along ecological gradients.
+In Zobel, M. (ed.), Journal of Vegetation Science, 24, 794–806.
+Måsviken, J., Dalén, L., Norén, K., & Dalerum, F. (2023a). The relative importance of abiotic and
+biotic environmental conditions for taxonomic, phylogenetic, and functional diversity of spiders
+across spatial scales. Oecologia, 202(2), 261–273. https://doi.org/10.1007/s00442-023-05383-
+0
+Måsviken, J., Marquina, D., Norén, K., Dalén, L., y Dalerum, F. (2023b). Elevational variation of
+spider and insect communities in the Swedish mountains. Ecosphere, 14(6).
+https://doi.org/10.1002/ecs2.4540
+37
+Mas, E. D., Chust, G., Pretus, J. L., y Ribera, C. (2009). Spatial modelling of spider biodiversity:
+matters of scale. Biodiversity and Conservation, 18(7), 1945-1962.
+https://doi.org/10.1007/s10531-008-9566-2
+Mazel, F., Davies, T., Gallien, L., Renaud, J., Groussin, M., Münkemüller, T., y Thuiller, W. (2015).
+Influence of tree shape and evolutionary time‐scale on phylogenetic diversity metrics. Ecography,
+39(10), 913-920. https://doi.org/10.1111/ecog.01694
+Milano, F., Blick, T., Cardoso, P., Chatzaki, M., Fukushima, C. S., Gajdoš, P., Gibbons, A. T.,
+Henriques, S., Macías-Hernández, N., Mammola, S., Nentwig, W., Nolan, M., Pétillon, J.,
+Polchaninova, N., Řezáč, M., Sandström, J., Smith, H., Wiśniewski, K., y Isaia, M. (2021). Spider
+conservation in Europe: A review. Biological Conservation, 253, 109020.
+https://doi.org/10.1016/j.biocon.2021.109020
+Miller, M. A., Pfeiffer, W., y Schwartz, T. (2010, November). Creating the CIPRES Science Gateway
+for inference of large phylogenetic trees. In 2010 gateway computing environments workshop
+(GCE) (pp. 1-8). IEEE.
+Nentwig, W., Blick, T., Bosmans, Hänggi, A., Kropf, C., Stäubli, A. (2025). Spiders of Europe.
+Version 2.2025. Online at https://www.araneae.nmbe.ch, accessed on 05-02-2025.
+https://doi.org/10.24436/1
+Oksanen, J., Blanchet, F. G., Friendly, M., Kindt, R., Legendre, P., McGlinn, D., … Wagner, H. (2020).
+vegan: Community Ecology Package (R package version 2.5-7). https://CRAN.Rproject.org/package=vegan
+Orsholm, J. (2024). Community phylogenetics in the era of DNA-barcoding: Potentials and
+challenges. Department of Ecology, Swedish University of Agricultural Sciences.
+https://res.slu.se/id/publ/128248
+Paradis, E., y Schliep, K. (2019). ape 5.0: An environment for modern phylogenetics and
+evolutionary analyses in R. Bioinformatics, 35(3), 526–528.
+https://doi.org/10.1093/bioinformatics/bty633
+Petchey, O. L., y Gaston, K. J. (2006). Functional diversity: Back to basics and looking forward.
+Ecology Letters, 9(6), 741–758. https://doi.org/10.1111/j.1461-0248.2006.00924.x
+Pimm, S. L., Jenkins, C., Abell, R., Brooks, T., Gittleman, J. L., Joppa, L., Raven, P. B., Roberts, C. J., y
+Sexton, J. B. (2014). The biodiversity of species and their rates of extinction, distribution, and
+protection. Science, 344(6187). https://doi.org/10.1126/science.1246752
+Pitta, E., Zografou, K., Poursanidis, D., y Chatzaki, M. (2019). Effects of climate on spider beta
+diversity across different Mediterranean habitat types. Biodiversity and Conservation, 28(14),
+3971–3988. https://doi.org/10.1007/s10531-019-01860-2
+Podgaiski, L. R., Joner, F., Lavorel, S., Moretti, M., Ibanez, S., Mendonça, M. d. S., … y Pillar, V. D.
+(2013). Spider trait assembly patterns and resilience under fire-induced vegetation change in
+south Brazilian grasslands. PLoS ONE, 8(3), e60207.
+https://doi.org/10.1371/journal.pone.0060207
+38
+R Core Team (2024a). scale: Centering and scaling of matrices and vectors. In: The R stats
+package. URL: https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html
+R Core Team (2024b). The R stats package. R Foundation for Statistical Computing. URL:
+https://stat.ethz.ch/R-manual/R-devel/library/stats/html/hclust.html
+Reaser, J. K., Meyerson, L. A., Cronk, Q., De Poorter, M. A. J., Eldrege, L. G., Green, E., y Vaiutu, L.
+(2007). Ecological and socioeconomic impacts of invasive alien species in island ecosystems.
+Environmental Conservation, 34(2), 98-111.
+Renner, S. S., Otto, R., Martín Esquivel, J. L., Marrero Gómez, M. V., y Fernández-Palacios, J. M.
+(2022). Vegetation change on Mt. Teide, the Atlantic's highest volcano, inferred by incorporating
+the data underlying Humboldt's Tableau Physique des Iles Canaries. Journal of Biogeography,
+50(2), 251–261. https://doi.org/10.1111/jbi.14503
+Revell, L. J. (2012). phytools: An R package for phylogenetic comparative biology (and other
+things). Methods in Ecology and Evolution, 3(2), 217–223. https://doi.org/10.1111/j.2041-
+210X.2011.00169.x
+Schmera, D., Heino, J., Podani, J., et al. (2017). Functional diversity: a review of methodology and
+current knowledge in freshwater macroinvertebrate research. Hydrobiologia, 787, 27–44.
+https://doi.org/10.1007/s10750-016-2974-5
+Seibold, S., Gossner, M. M., Simons, N. K., et al. (2019). Arthropod decline in grasslands and forests
+is associated with landscape-level drivers. Nature, 574, 671–674.
+https://doi.org/10.1038/s41586-019-1684-3
+Swenson, N. G. (2011). The role of evolutionary processes in producing biodiversity patterns, and
+the interrelationships between taxonomic, functional and phylogenetic biodiversity. American
+Journal of Botany, 98(3), 1-8. https://doi.org/10.3732/ajb.1000289
+Swenson, N. G. (2014). Functional and phylogenetic ecology in R (Vol. 639). New York: Springer.
+Tucker, C., Davies, T., Cadotte, M., & Pearse, W. (2018). On the relationship between phylogenetic
+diversity and trait diversity. Ecology, 99(6), 1473–1479. https://doi.org/10.1002/ecy.2349
+Villéger, S., Grenouillet, G., & Brosse, S. (2013). Decomposing functional β-diversity reveals that
+low functional β-diversity is driven by low functional turnover in European fish assemblages.
+Global Ecology and Biogeography, 22(1), 1–11. https://doi.org/10.1111/geb.12021
+Webb, C. O., & Losos, J. B. (2000). Exploring the phylogenetic structure of ecological communities:
+An example for rain forest trees. The American Naturalist, 156(2), 145–157.
+Webb, C. O., Ackerly, D. D., McPeek, M. A., & Donoghue, M. J. (2002). Phylogenies and community
+ecology. Annual Review of Ecology and Systematics, 33(1), 475–505.
+Wei, C., Li, H., Heino, J., & Jiang, X. (2025). Seasonal variation and driving factors of beta diversity
+of macroinvertebrate assemblages in subtropical Chinese high-mountain streams. Water Biology
+and Security, 100, 100379. https://doi.org/10.1016/j.watbs.2025.100379
+39
+Wheeler, W. C., Coddington, J. A., Crowley, L. M., Dimitrov, D., Goloboff, P. A., Griswold, C. E.,
+Hormiga, G., Prendini, L., Ramírez, M. J., Sierwald, P., Almeida-Silva, L., Álvarez-Padilla, F., Arnedo,
+M. A., Benavides Silva, L. R., Benjamin, S. P., Bond, J. E., Grismado, C. J., Hasan, E., Hedin, M.,
+Izquierdo, M. A., Labarque, F. M., Ledford, J., Lopardo, L., Maddison, W. P., Miller, J. A., Piacentini,
+L. N., Platnick, N. I., Polotow, D., Silva-Dávila, D., Scharff, N., Szűts, T., Ubick, D., Vink, C. J., Wood,
+H. M., & Zhang, J. (2016). The spider tree of life: Phylogeny of Araneae based on target-gene
+analyses from an extensive taxon sampling. Cladistics, 32(1), 1–17.
+https://doi.org/10.1111/cla.12182
+World Spider Catalog. (2025). World Spider Catalog (Version 26). Natural History Museum Bern,
+online at http://wsc.nmbe.ch, accessed on 28/05/2025. https://doi.org/10.24436/2
+Worm, B., Barbier, E. B., Beaumont, N., Duffy, J. E., Folke, C., Halpern, B. S., Jackson, J. B. C., Lotze,
+H. K., Micheli, F., Palumbi, S. R., Sala, E., Selkoe, K. A., Stachowicz, J. J., & Watson, R. (2006).
+Impacts of biodiversity loss on ocean ecosystem services. Science, 314(5800), 787–790.
+https://doi.org/10.1126/science.1132294
+Wunderlich, J. (1987). Die Spinnen der Kanarischen Inseln und Madeiras. Langen, Germany:
+Triops.
+Wunderlich, J. (1991). Die Spinnen-Fauna der Makaronesischen Inseln. Straubenhardt, Germany:
+Hirschberg - Leutershausen.
+Wunderlich, J. (1994). Zu Ökologie, Biogeographie, Evolution und Taxonomie einiger Spinnen der
+Makaronesischen Inseln. Straubenhardt, Germany: Hirschberg - Leutershausen.
+Wu, N., Liu, G., Zhang, M., Wang, Y., Peng, W., y Qu, X. (2022). Spatial factors outperform local
+environmental and geo-climatic variables in structuring multiple facets of stream
+macroinvertebrates’ β-diversity. Animals, 12(19), 2648. https://doi.org/10.3390/ani12192648
+Yang, Z. (2006). Computational molecular evolution. Oxford University Press.
+https://doi.org/10.1093/acprof:oso/9780198567028.001.0001

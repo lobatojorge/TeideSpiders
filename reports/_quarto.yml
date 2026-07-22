@@ -1,0 +1,23 @@
+project:
+  type: default
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "Contenido"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    self-contained: true
+    fig-dpi: 300
+    fig-width: 8
+    fig-height: 5
+    lang: es
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  cache: true

@@ -1,0 +1,287 @@
+---
+title: "Diversidad de Arañas · Parque Nacional del Teide (1995–2024)"
+subtitle: "Análisis taxonómico, filogenético y funcional"
+author: "Jorge"
+date: last-modified
+lang: es
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    self-contained: true
+    fig-dpi: 300
+
+params:
+  seed:  42
+  runs:  999
+  iter:  1000
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  cache: true
+---
+
+```{r setup, cache=FALSE}
+# Setup: carga módulos compartidos y ejecuta análisis si los objetos no existen
+library(here)
+source(here("config.R"))
+source(here("R/data_prep.R"))
+source(here("R/model_utils.R"))
+source(here("R/plot_utils.R"))
+
+# Sobreescribir parámetros con los del YAML params (permite variación dinámica)
+SEED <- params$seed
+RUNS <- params$runs
+ITER <- params$iter
+```
+
+# Introducción {#sec-intro}
+
+Comparación de la comunidad de arañas del P.N. Teide entre 1995 y 2024 en tres
+dimensiones de diversidad: taxonómica (TD), filogenética (PD) y funcional (FD).
+
+---
+
+# Diversidad Taxonómica {#sec-taxo}
+
+```{r taxo-data, cache=TRUE, dependson="setup"}
+# Carga datos y ejecuta análisis taxonómico completo
+aranas <- load_aranas()
+
+riqueza <- aranas |>
+  dplyr::filter(Año %in% YEARS) |>
+  dplyr::group_by(Código_localidad, Año) |>
+  dplyr::summarise(riqueza = dplyr::n_distinct(Taxon), .groups = "drop") |>
+  dplyr::mutate(Año = factor(Año))
+```
+
+## Riqueza de especies {#sec-riqueza}
+
+```{r taxo-riqueza-plot, cache=TRUE, dependson="taxo-data", fig.cap="Riqueza observada por año de muestreo."}
+ggplot2::ggplot(riqueza, ggplot2::aes(x = Año, y = riqueza, fill = Año)) +
+  ggplot2::geom_boxplot() +
+  ggplot2::scale_fill_manual(values = PALETTE) +
+  ggplot2::labs(y = "Riqueza de especies") +
+  theme_teide()
+```
+
+```{r taxo-riqueza-model, cache=TRUE, dependson="taxo-data"}
+library(MASS)
+modelo_poisson   <- stats::glm(riqueza ~ Año, data = riqueza, family = poisson)
+modelo_nb_simple <- MASS::glm.nb(riqueza ~ Año, data = riqueza)
+
+# Selección por AIC
+knitr::kable(
+  data.frame(Distribución = c("Poisson", "Binomial Negativa"),
+             AIC          = c(AIC(modelo_poisson), AIC(modelo_nb_simple))),
+  caption = "Comparación AIC para selección de distribución."
+)
+```
+
+## Completitud del muestreo {#sec-completitud}
+
+```{r taxo-completitud, cache=TRUE, dependson="taxo-data"}
+aranas_95 <- dplyr::filter(aranas, Año == 1995)
+aranas_24 <- dplyr::filter(aranas, Año == 2024)
+
+make_mat <- function(df) {
+  df |>
+    tidyr::pivot_wider(id_cols = "Código_localidad",
+                       names_from = "Taxon", values_from = "N_exx.",
+                       values_fn = sum, values_fill = 0) |>
+    dplyr::select(-Código_localidad)
+}
+
+sp95 <- vegan::specpool(make_mat(aranas_95))
+sp24 <- vegan::specpool(make_mat(aranas_24))
+
+knitr::kable(
+  tibble::tibble(
+    Año         = c("1995", "2024"),
+    Observadas  = c(sp95$Species, sp24$Species),
+    `Chao (est.)` = c(round(sp95$chao), round(sp24$chao)),
+    `Completitud (%)` = round(c(sp95$Species / sp95$chao,
+                                sp24$Species / sp24$chao) * 100, 1)
+  ),
+  caption = "Riqueza observada vs. estimada (Chao) y completitud del muestreo."
+)
+```
+
+## NMDS {#sec-nmds}
+
+```{r taxo-nmds, cache=TRUE, dependson="taxo-data", fig.cap="Ordenación NMDS (Jaccard, presencia/ausencia). Polígonos convexos por año."}
+aranas_nmds <- aranas |>
+  dplyr::mutate(localidad_año = paste(Código_localidad, Año, sep = "_"))
+NMDSPresAu <- build_samp(aranas_nmds, id_col = "localidad_año")
+
+set.seed(SEED)
+nmds_result <- vegan::metaMDS(
+  vegan::vegdist(NMDSPresAu, method = "jaccard"), k = 2, trymax = 100)
+
+nmds_sites <- as.data.frame(vegan::scores(nmds_result, "sites")) |>
+  tibble::rownames_to_column("localidad_año") |>
+  dplyr::mutate(año = sub(".*_", "", localidad_año))
+
+hull <- nmds_sites |>
+  dplyr::group_by(año) |>
+  dplyr::slice(grDevices::chull(NMDS1, NMDS2))
+
+ggplot2::ggplot(nmds_sites, ggplot2::aes(NMDS1, NMDS2)) +
+  ggplot2::geom_point(ggplot2::aes(color = año), size = 3) +
+  ggplot2::geom_polygon(data = hull,
+                         ggplot2::aes(group = año, fill = año),
+                         alpha = 0.25) +
+  ggplot2::scale_color_manual(values = PALETTE) +
+  ggplot2::scale_fill_manual(values  = PALETTE) +
+  ggplot2::labs(subtitle = paste("Stress =", round(nmds_result$stress, 3))) +
+  theme_teide()
+```
+
+---
+
+# Diversidad Filogenética {#sec-filo}
+
+```{r filo-setup, cache=TRUE, dependson="setup"}
+library(ape); library(phytools); library(picante)
+
+aranas_fp <- load_aranas() |>
+  dplyr::mutate(
+    LocAño = paste(Código_localidad, Año, sep = "_"),
+    Taxon  = gsub("\\(|\\)", "", Taxon),
+    Taxon  = gsub(" ", "_", Taxon)
+  )
+samp_p  <- build_samp(aranas_fp, id_col = "LocAño")
+zonas   <- readxl::read_excel(PATH_ZONAS)
+tree    <- ape::read.tree(PATH_RAXML)
+
+sp_present <- colnames(samp_p)[colSums(samp_p) > 0]
+ut <- phytools::force.ultrametric(tree, method = "nnls")
+ut$edge.length <- pmax(ut$edge.length, 0)
+pt <- ape::keep.tip(ut, intersect(sp_present, ut$tip.label))
+distm_p <- ape::cophenetic.phylo(pt)
+```
+
+## PD, MPD y MNTD {#sec-pd-indices}
+
+```{r filo-ses, cache=TRUE, dependson="filo-setup"}
+SES_PD   <- cache_or_run(file.path(CACHE_DIR, "SES_PD.rds"),
+                          { set.seed(SEED)
+                            picante::ses.pd(samp_p, pt, null.model="taxa.labels",
+                                            runs=RUNS, iter=ITER, include.root=TRUE) })
+SES_MPD  <- cache_or_run(file.path(CACHE_DIR, "SES_MPD.rds"),
+                          { set.seed(SEED)
+                            picante::ses.mpd(samp_p, distm_p, null.model="taxa.labels",
+                                             runs=RUNS, iterations=ITER) })
+SES_MNTD <- cache_or_run(file.path(CACHE_DIR, "SES_MNTD.rds"),
+                          { set.seed(SEED)
+                            picante::ses.mntd(samp_p, distm_p, null.model="taxa.labels",
+                                              runs=RUNS, iterations=ITER) })
+```
+
+```{r filo-combined-plot, cache=TRUE, dependson="filo-ses", fig.cap="SES de PD, MPD y MNTD por zona y año. Las líneas punteadas indican el umbral ±1.96 (clustering/overdispersion)."}
+res_PD   <- run_ses_pipeline(SES_PD,   "pd.obs.z",   zonas, "PD")
+res_MPD  <- run_ses_pipeline(SES_MPD,  "mpd.obs.z",  zonas, "MPD")
+res_MNTD <- run_ses_pipeline(SES_MNTD, "mntd.obs.z", zonas, "MNTD")
+
+combined_pd <- combine_ses(
+  list(data=res_PD$data,   y_col="pd.obs.z",   label="PD"),
+  list(data=res_MPD$data,  y_col="mpd.obs.z",  label="MPD"),
+  list(data=res_MNTD$data, y_col="mntd.obs.z", label="MNTD")
+)
+combined_pd$tipo <- factor(combined_pd$tipo, levels = c("PD","MPD","MNTD"))
+
+ggplot2::ggplot(combined_pd,
+                ggplot2::aes(x=zona, y=valor, fill=factor(año))) +
+  ggplot2::geom_boxplot(position = ggplot2::position_dodge(0.75)) +
+  ggplot2::geom_hline(yintercept=c(-1.96,1.96),
+                       linetype="dashed", color="grey50") +
+  ggplot2::scale_fill_manual(values=PALETTE) +
+  ggplot2::facet_wrap(~tipo) +
+  ggplot2::labs(x="Zona", y="SES", fill="Año") +
+  theme_teide()
+```
+
+---
+
+# Diversidad Funcional {#sec-fun}
+
+```{r fun-setup, cache=TRUE, dependson="setup"}
+library(randomForest); library(cluster); library(ape); library(picante)
+
+traits_raw <- openxlsx::read.xlsx(PATH_TRAITS, sheet=1, rowNames=TRUE)
+traits_raw[,1:3]  <- lapply(traits_raw[,1:3], as.numeric)
+traits_raw[,4:19] <- lapply(traits_raw[,4:19], factor)
+traits_raw[,1:3]  <- as.data.frame(scale(traits_raw[,1:3]))
+
+set.seed(SEED)
+rf_m <- randomForest::randomForest(x=traits_raw[,1:19], importance=TRUE, ntree=500)
+imp  <- randomForest::importance(rf_m)[,1]
+imp  <- imp / sum(imp)
+
+matDist <- cluster::daisy(traits_raw, metric="gower", weights=imp)
+hc_fun  <- hclust(as.dist(matDist), method="ward.D2")
+Ftree   <- ape::as.phylo(hc_fun)
+ape::write.nexus(Ftree, file=PATH_FTREE)
+Ftree   <- ape::read.nexus(PATH_FTREE)
+Ftree$tip.label <- gsub("'","",Ftree$tip.label)
+
+aranas_f <- load_aranas(extra_drop="Muestreo") |>
+  dplyr::mutate(LocAño=paste(Código_localidad,Año,sep="_"))
+samp_f  <- build_samp(aranas_f, id_col="LocAño")
+zonas_f <- readxl::read_excel(PATH_ZONAS)
+distm_f <- ape::cophenetic.phylo(Ftree)
+```
+
+## fPD, fMPD y fMNTD {#sec-fd-indices}
+
+```{r fun-ses, cache=TRUE, dependson="fun-setup"}
+SES_fPD   <- cache_or_run(file.path(CACHE_DIR,"SES_fPD.rds"),
+                           { set.seed(SEED)
+                             picante::ses.pd(samp_f, Ftree, null.model="taxa.labels",
+                                             runs=RUNS, iterations=ITER, include.root=TRUE) })
+SES_fMPD  <- cache_or_run(file.path(CACHE_DIR,"SES_fMPD.rds"),
+                           { set.seed(SEED)
+                             picante::ses.mpd(samp_f, distm_f, null.model="taxa.labels",
+                                              runs=RUNS, iterations=ITER) })
+SES_fMNTD <- cache_or_run(file.path(CACHE_DIR,"SES_fMNTD.rds"),
+                           { set.seed(SEED)
+                             picante::ses.mntd(samp_f, distm_f, null.model="taxa.labels",
+                                               runs=RUNS, iterations=ITER) })
+```
+
+```{r fun-combined-plot, cache=TRUE, dependson="fun-ses", fig.cap="SES de fPD, fMPD y fMNTD por zona y año."}
+res_fPD   <- run_ses_pipeline(SES_fPD,   "pd.obs.z",   zonas_f, "fPD")
+res_fMPD  <- run_ses_pipeline(SES_fMPD,  "mpd.obs.z",  zonas_f, "fMPD")
+res_fMNTD <- run_ses_pipeline(SES_fMNTD, "mntd.obs.z", zonas_f, "fMNTD")
+
+combined_fd <- combine_ses(
+  list(data=res_fPD$data,   y_col="pd.obs.z",   label="fPD"),
+  list(data=res_fMPD$data,  y_col="mpd.obs.z",  label="fMPD"),
+  list(data=res_fMNTD$data, y_col="mntd.obs.z", label="fMNTD")
+)
+combined_fd$tipo <- factor(combined_fd$tipo, levels=c("fPD","fMPD","fMNTD"))
+
+ggplot2::ggplot(combined_fd,
+                ggplot2::aes(x=zona, y=valor, fill=factor(año))) +
+  ggplot2::geom_boxplot(position=ggplot2::position_dodge(0.75)) +
+  ggplot2::geom_hline(yintercept=c(-1.96,1.96),
+                       linetype="dashed", color="grey50") +
+  ggplot2::scale_fill_manual(values=PALETTE) +
+  ggplot2::facet_wrap(~tipo) +
+  ggplot2::labs(x="Zona", y="SES", fill="Año") +
+  theme_teide()
+```
+
+---
+
+# Información de sesión {#sec-session}
+
+```{r session, cache=FALSE}
+sessionInfo()
+```

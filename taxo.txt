@@ -1,0 +1,268 @@
+TAXO.R - Análisis de Diversidad Taxonómica
+Este script analiza la diversidad taxonómica (TD) mediante el cálculo de riqueza de especies, análisis NMDS, beta diversidad y curvas de acumulación.
+
+# ============================================================================
+# TAXO.R - ANÁLISIS DE DIVERSIDAD TAXONÓMICA
+# ============================================================================
+# Este script realiza el análisis completo de diversidad taxonómica (TD)
+# Compara la riqueza de especies entre 1995 y 2024
+# Calcula beta diversidad taxonómica y genera visualizaciones
+# ============================================================================
+
+# --- CONFIGURACIÓN INICIAL ---
+setwd('F:/TFM')
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(vegan)
+library(BAT)
+library(showtext)
+
+# Cargar datos
+arañas <- read_excel("arañas.xlsx")
+
+# Limpiar y preparar datos
+arañas <- arañas[, !colnames(arañas) %in% c("Cod_DZUL", "Año", "Ordenar","X","Y",
+                                             "Camp","Localidad","Código_95","Fecha",
+                                             "Trampa","Código_muestra","Orden",
+                                             "Familia","Género","Especie",
+                                             "Determinador","Observaciones")]
+
+arañas <- arañas %>%
+  select(Código_localidad, Año2, Taxon, N_exx., Muestreo) %>%
+  rename(Año = Año2)
+
+arañas$N_exx. <- as.numeric(arañas$N_exx.)
+arañas <- arañas[complete.cases(arañas), ]  # Eliminar filas con NA
+
+# ============================================================================
+# 1. ANÁLISIS DE RIQUEZA POR AÑO
+# ============================================================================
+# Compara la riqueza de especies entre 1995 y 2024
+
+riqueza <- arañas %>%
+  filter(Año %in% c(1995, 2024)) %>%
+  group_by(Código_localidad, Año) %>%
+  summarise(riqueza = n_distinct(Taxon), .groups = "drop")
+
+# Visualización: Boxplot de riqueza
+font_add_google("Lexend", "lexend")
+showtext_auto()
+
+ggplot(riqueza, aes(x = factor(Año), y = riqueza, fill = factor(Año))) +
+  geom_boxplot() +
+  labs(title = "Comparación de Riqueza entre 1995 y 2024",
+       x = "Año", y = "Riqueza", fill = "Año") +
+  scale_fill_manual(values = c("#AEC6CF", "#F08080")) +
+  theme_minimal() +
+  theme(text = element_text(family = "lexend"),
+        plot.title = element_text(size = 50, face = "bold"),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 40),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 25))
+
+ggsave("boxplot_riqueza.png", width = 6, height = 4, dpi = 300)
+
+# Modelo estadístico: GLM Poisson
+riqueza$Año <- factor(riqueza$Año)
+modelo_poisson <- glm(riqueza ~ Año, data = riqueza, family = poisson)
+summary(modelo_poisson)
+anova_result <- anova(modelo_poisson, test = "Chisq")
+
+# ============================================================================
+# 2. RIQUEZA POR AÑO Y TIPO DE MUESTREO
+# ============================================================================
+# Analiza diferencias entre métodos de muestreo (trampas vs. métodos activos)
+
+riqueza_loc_muest <- arañas %>%
+  group_by(Código_localidad, Año, Muestreo) %>%
+  summarise(Riqueza = n_distinct(Taxon), .groups = "drop")
+
+riqueza_loc_muest$Año <- as.factor(riqueza_loc_muest$Año)
+
+ggplot(riqueza_loc_muest, aes(x = Muestreo, y = Riqueza, fill = Año)) +
+  geom_boxplot(lwd = 0.3, outlier.size = 0.7) +
+  labs(y = "Riqueza") +
+  scale_fill_manual(values = c("1995" = "#AEC6CF", "2024" = "#F08080")) +
+  theme_linedraw() +
+  theme(panel.grid = element_blank(),
+        axis.title.x = element_blank(),
+        text = element_text(family = "lexend"))
+
+ggsave("riqueza_año_muest.png", width = 6, height = 4, dpi = 300)
+
+# Modelo: Negative Binomial
+library(MASS)
+library(car)
+library(DHARMa)
+library(emmeans)
+
+model_NB <- glm.nb(Riqueza ~ Año * Muestreo, data = riqueza_loc_muest, na.action = "na.omit")
+summary(model_NB)
+anova_am <- Anova(model_NB)
+simulationOutputNB <- simulateResiduals(fittedModel = model_NB)
+plot(simulationOutputNB)
+
+marginal <- emmeans(model_NB, ~ Año * Muestreo)
+pairs(marginal, adjust = "tukey")
+
+# ============================================================================
+# 3. ANÁLISIS NMDS (Non-Metric Multidimensional Scaling)
+# ============================================================================
+# Visualiza la similitud entre comunidades usando ordenación no métrica
+
+# Preparar matriz de presencia/ausencia
+arañas$localidad_año <- paste(arañas$Código_localidad, arañas$Año, sep = "_")
+arañas_resumido <- arañas %>%
+  group_by(localidad_año, Taxon) %>%
+  summarise(N_exx. = sum(N_exx., na.rm = TRUE), .groups = "drop")
+
+matriz_NMDS <- tidyr::pivot_wider(
+  data = arañas_resumido,
+  id_cols = localidad_año,
+  names_from = Taxon,
+  values_from = N_exx.,
+  values_fill = list(N_exx. = 0)
+)
+
+# Convertir a presencia/ausencia
+NMDSPresAu <- matriz_NMDS %>%
+  mutate(across(-localidad_año, ~ ifelse(. > 0, 1, 0)))
+NMDSPresAu <- NMDSPresAu[, -1]
+
+# Calcular distancia de Jaccard y realizar NMDS
+matriz_distancia <- vegdist(NMDSPresAu, method = "jaccard", na.rm = TRUE)
+nmds_result <- metaMDS(matriz_distancia, k = 2, trymax = 100)
+
+# Extraer coordenadas de los sitios
+nmds_sites <- as.data.frame(scores(nmds_result, display = "sites"))
+nmds_sites$localidad_año <- rownames(NMDSPresAu)
+nmds_sites$localidad <- sub("_.*", "", nmds_sites$localidad_año)
+nmds_sites$año <- sub(".*_", "", nmds_sites$localidad_año)
+
+# Crear polígonos convexos (hull) por año
+hull <- nmds_sites %>%
+  group_by(año) %>%
+  slice(chull(NMDS1, NMDS2))
+
+# Visualización NMDS con polígonos
+grafico <- ggplot(data = nmds_sites, aes(x = NMDS1, y = NMDS2)) +
+  geom_point(aes(color = localidad), size = 3, show.legend = FALSE) +
+  geom_polygon(data = hull, aes(group = año, fill = año), alpha = 0.3) +
+  labs(title = "NMDS por Año y Localidad",
+       x = "NMDS1", y = "NMDS2") +
+  theme_minimal() +
+  theme(text = element_text(family = "lexend", size = 12),
+        plot.title = element_text(hjust = 0.5, size = 18, family = "lexend")) +
+  scale_color_manual(values = c("1995" = "#AEC6CF", "2024" = "#F08080")) +
+  scale_fill_manual(values = c("1995" = "#AEC6CF", "2024" = "#F08080"))
+
+print(grafico)
+
+# ============================================================================
+# 4. BETA DIVERSIDAD TAXONÓMICA
+# ============================================================================
+# Calcula beta diversidad total, reemplazamiento y riqueza
+
+NMDSPresAu <- as.data.frame(NMDSPresAu)
+rownames(NMDSPresAu) <- rownames(NMDSPresAu)
+NMDSPresAu <- NMDSPresAu[, -1]
+
+Tbeta <- beta(NMDSPresAu, func = "jaccard", abund = FALSE)
+
+# Extraer componentes de beta diversidad
+TBtotal <- as.matrix(Tbeta$Btotal)
+TBtotal_df <- as.data.frame(TBtotal)
+write.xlsx(TBtotal_df, "TBtotal.xlsx")
+
+TBrepl <- as.matrix(Tbeta$Brepl)
+TBrepl_df <- as.data.frame(TBrepl)
+write.xlsx(TBrepl_df, "TBrepl.xlsx")
+
+TBrich <- as.matrix(Tbeta$Brich)
+TBrich_df <- as.data.frame(TBrich)
+write.xlsx(TBrich_df, "TBrich.xlsx")
+
+# ============================================================================
+# 5. CURVAS DE ACUMULACIÓN DE ESPECIES
+# ============================================================================
+# Compara las curvas de acumulación entre 1995 y 2024
+# Permite estimar la completitud del muestreo
+
+arañas_95 <- arañas %>% filter(Año == 1995)
+arañas_24 <- arañas %>% filter(Año == 2024)
+
+# Crear matrices de especies por localidad
+matriz_95 <- arañas_95 %>%
+  pivot_wider(names_from = Taxon, values_from = N_exx.,
+              values_fn = sum, values_fill = 0)
+matriz_24 <- arañas_24 %>%
+  pivot_wider(names_from = Taxon, values_from = N_exx.,
+              values_fn = sum, values_fill = 0)
+
+matriz_95 <- matriz_95[, -1]
+matriz_24 <- matriz_24[, -1]
+
+# Calcular curvas de acumulación
+accum_95 <- specaccum(matriz_95, method = "random", permutations = 1000)
+specpool_95 <- specpool(matriz_95)
+completitud_95 <- specpool_95$Species / specpool_95$chao * 100
+
+accum_24 <- specaccum(matriz_24, method = "random", permutations = 1000)
+specpool_24 <- specpool(matriz_24)
+completitud_24 <- specpool_24$Species / specpool_24$chao * 100
+
+# Preparar datos para visualización
+accum_95_df <- data.frame(Sites = accum_95$sites, Richness = accum_95$richness, SD = accum_95$sd)
+accum_24_df <- data.frame(Sites = accum_24$sites, Richness = accum_24$richness, SD = accum_24$sd)
+accum_95_df$Year <- "1995"
+accum_24_df$Year <- "2024"
+accum_df <- rbind(accum_95_df, accum_24_df)
+
+# Calcular pendientes de las curvas
+pendientes <- accum_df %>%
+  group_by(Year) %>%
+  do({
+    model <- lm(Richness ~ Sites, data = .)
+    pendiente <- coef(model)[2]
+    data.frame(pendiente)
+  })
+
+# Visualización de curvas de acumulación
+accum_df$Sites <- as.factor(accum_df$Sites)
+
+ggplot(accum_df, aes(x = Sites, y = Richness, color = Year, group = Year)) +
+  geom_point() +
+  geom_line(size = 1.5) +
+  scale_color_manual(values = c("1995" = "#AEC6CF", "2024" = "#F08080")) +
+  annotate("text", x = 8, y = 70,
+           label = paste("Chao 1995 =", round(specpool_95$chao)),
+           col = "black", size = 4, family = "lexend") +
+  annotate("text", x = 10, y = 40,
+           label = paste("Chao 2024 =", round(specpool_24$chao)),
+           col = "black", size = 4, family = "lexend") +
+  labs(title = "Curvas de acumulación de especies por año",
+       x = "Número de localidades",
+       y = "Riqueza acumulada",
+       color = "Año") +
+  theme_minimal() +
+  theme(text = element_text(family = "lexend", size = 10),
+        plot.title = element_text(hjust = 0.5, size = 20, family = "lexend"),
+        axis.title = element_text(size = 15, family = "lexend"),
+        axis.text = element_text(size = 10, family = "lexend"),
+        legend.title = element_text(size = 15, family = "lexend"),
+        legend.text = element_text(size = 10, family = "lexend")) +
+  scale_x_discrete(breaks = 1:12) +
+  geom_smooth(method = "lm", aes(group = Year), se = FALSE,
+              linetype = "dashed", color = "grey", size = 1) +
+  geom_text(data = pendientes,
+            aes(x = 6, y = ifelse(Year == "1995", 58, 32),
+                label = paste("m = ", round(pendiente, 2))),
+            size = 3, color = "black", family = "lexend", inherit.aes = FALSE)
+
+ggsave("curvas.png", width = 20, height = 20, units = "cm")
+
+# ============================================================================
+# FIN DEL SCRIPT TAXO.R
+# ============================================================================

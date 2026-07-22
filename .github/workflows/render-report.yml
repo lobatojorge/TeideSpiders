@@ -1,0 +1,84 @@
+name: Render Diversity Report
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'R/**'
+      - 'analysis/**'
+      - 'reports/**'
+      - 'config.R'
+      - 'renv.lock'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:   # permite lanzar manualmente desde GitHub
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # ses.* pueden tardar mucho
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - uses: actions/checkout@v4
+
+      # ── 2. R y Quarto ────────────────────────────────────────────────────
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      # ── 3. Restaurar entorno con renv ────────────────────────────────────
+      - uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1   # incrementar para forzar reinstalación
+
+      # ── 4. Caché de objetos SES costosos ─────────────────────────────────
+      # La clave incluye hash de datos y config: se invalida solo si cambian
+      - name: Restore SES cache
+        uses: actions/cache@v4
+        with:
+          path: output/cache
+          key: ses-${{ hashFiles('data/arañas.xlsx', 'data/zonas.xlsx',
+                                  'data/RAxML_bestTree.result',
+                                  'data/matrizTraits.xlsx', 'config.R') }}
+          restore-keys: ses-
+
+      # ── 5. Ejecutar pipeline de análisis ────────────────────────────────
+      - name: Run 01_taxo.R
+        run: Rscript -e "source('config.R'); source('analysis/01_taxo.R')"
+
+      - name: Run 02_fun.R
+        run: Rscript -e "source('config.R'); source('analysis/02_fun.R')"
+
+      - name: Run 03_filo.R
+        run: Rscript -e "source('config.R'); source('analysis/03_filo.R')"
+
+      # ── 6. Renderizar reporte Quarto ─────────────────────────────────────
+      - name: Render Quarto report
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: reports/diversity_report.Qmd
+
+      # ── 7. Publicar como artifact de GitHub Actions ──────────────────────
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: diversity-report-${{ github.sha }}
+          path: reports/diversity_report.html
+          retention-days: 30
+
+      # ── 8. (Opcional) Deploy a GitHub Pages ──────────────────────────────
+      # Descomentar si se quiere publicar en https://<user>.github.io/<repo>
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: github.ref == 'refs/heads/main'
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir:  reports
