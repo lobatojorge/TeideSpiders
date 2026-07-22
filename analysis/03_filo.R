@@ -35,10 +35,24 @@ source(here("R/model_utils.R"))
 source(here("R/plot_utils.R"))
 
 # =============================================================================
-# 1. PREPARACIÓN DE DATOS DE COMUNIDAD
+# 1. PREPARACIÓN DE DATOS
 # =============================================================================
 
+# --- Carga de comunidad de arañas (desde R/data_prep.R) ----------------------
+# load_aranas() ya incluye drop_na() internamente.
 aranas <- load_aranas()
+
+# --- Carga de zonas (ingesta defensiva) --------------------------------------
+zonas <- load_zonas()
+
+# --- Carga del árbol filogenético (defensiva) --------------------------------
+if (file.exists(PATH_RAXML)) {
+  tree <- ape::read.tree(PATH_RAXML)
+} else {
+  warning("Árbol filogenético real no encontrado. Generando árbol aleatorio (DUMMY DATA).")
+  tax_tips <- unique(aranas$Taxon)
+  tree <- ape::rtree(n = length(tax_tips), tip.label = tax_tips)
+}
 
 # Limpiar nombres de taxones para coincidir con etiquetas del árbol filogenético
 aranas_fp <- aranas |>
@@ -50,14 +64,9 @@ aranas_fp <- aranas |>
 
 samp <- build_samp(aranas_fp, id_col = "LocAño")
 
-# Cargar tabla de zonas
-zonas <- readxl::read_excel(PATH_ZONAS)
-
 # =============================================================================
 # 2. CARGA Y PREPARACIÓN DEL ÁRBOL FILOGENÉTICO
 # =============================================================================
-
-tree <- ape::read.tree(PATH_RAXML)
 
 # Filtrar solo especies presentes en la muestra
 species_present <- colnames(samp)[colSums(samp) > 0]

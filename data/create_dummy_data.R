@@ -22,9 +22,8 @@ if (!dir.exists(DUMMY_DIR)) {
 
 # ── 1. arañas_dummy.parquet ──────────────────────────────────────────────────
 # Simula la estructura limpia de aranas_parquet (columnas Código_localidad, Año, Taxon, N_exx., Muestreo)
-localidades <- c("L1", "L2", "L3", "L4", "L5")
-taxones <- c("Lycosa_tarentula", "Pardosa_proxima", "Xysticus_cristatus", 
-             "Zodarion_italicum", "Linyphia_triangularis")
+localidades <- paste0("L", 1:15)
+taxones <- paste0("Taxon_", 1:50)
 muestreos <- c("Trampa de caída", "Mangueo")
 
 tax_dummy <- expand.grid(
@@ -35,7 +34,7 @@ tax_dummy <- expand.grid(
   stringsAsFactors = FALSE
 ) |>
   mutate(
-    N_exx. = rpois(n(), lambda = 5)  # Abundancia simulada
+    N_exx. = rnbinom(n(), size = 0.5, mu = 3)  # Abundancia con sobredispersión para que glm.nb no falle
   ) |>
   filter(N_exx. > 0) # Quitar ceros para simular presencia real
 
@@ -56,6 +55,7 @@ traits_dummy <- data.frame(
 
 arrow::write_parquet(traits_dummy, PATH_TRAITS_DUMMY, compression = "snappy")
 cat(sprintf("✓ Generado %s (%d filas)\n", basename(PATH_TRAITS_DUMMY), nrow(traits_dummy)))
+
 
 
 # ── 3. zonas_dummy.parquet ───────────────────────────────────────────────────

@@ -61,6 +61,45 @@ load_aranas <- function(path = PATH_ARANAS_RAW,
 }
 
 # -----------------------------------------------------------------------------
+load_traits <- function(path = PATH_TRAITS_RAW,
+                        path_parquet = PATH_TRAITS_PARQUET,
+                        path_dummy = PATH_TRAITS_DUMMY) {
+  if (file.exists(path_parquet)) return(arrow::read_parquet(path_parquet))
+  if (file.exists(path)) {
+    return(
+      readxl::read_excel(path) |>
+        dplyr::mutate(Body_Size  = as.numeric(Body_Size),
+                      Leg_Length = as.numeric(Leg_Length)) |>
+        dplyr::rename(species = Taxon)
+    )
+  }
+  if (file.exists(path_dummy)) {
+    warning("Cargando traits DUMMY.")
+    return(arrow::read_parquet(path_dummy))
+  }
+  stop("ERROR: Faltan datos reales y dummy de traits.")
+}
+
+# -----------------------------------------------------------------------------
+load_zonas <- function(path = PATH_ZONAS_RAW,
+                       path_parquet = PATH_ZONAS_PARQUET,
+                       path_dummy = PATH_ZONAS_DUMMY) {
+  if (file.exists(path_parquet)) return(arrow::read_parquet(path_parquet))
+  if (file.exists(path)) {
+    return(
+      readxl::read_excel(path) |>
+        dplyr::rename(año = año1) |>
+        dplyr::mutate(año = as.character(año))
+    )
+  }
+  if (file.exists(path_dummy)) {
+    warning("Cargando zonas DUMMY.")
+    return(arrow::read_parquet(path_dummy))
+  }
+  stop("ERROR: Faltan datos reales y dummy de zonas.")
+}
+
+# -----------------------------------------------------------------------------
 #' Construye matriz sitio × especie en presencia/ausencia
 #'
 #' @param df      data.frame con columnas: id_col, "Taxon", "N_exx."

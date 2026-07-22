@@ -46,24 +46,28 @@ source(here("R/plot_utils.R"))
 # 1. CARGA DE MATRIZ DE RASGOS FUNCIONALES
 # =============================================================================
 # Migrado de xlsx::read.xlsx2 (requiere Java) a openxlsx::read.xlsx
+# Y ahora a load_traits() para ingesta defensiva (soporte Parquet y dummy data)
 
-traits <- openxlsx::read.xlsx(PATH_TRAITS, sheet = 1, rowNames = TRUE)
+traits <- load_traits() |> tibble::column_to_rownames("species")
 str(traits)
 
 # =============================================================================
 # 2. PONDERACIÓN DE RASGOS MEDIANTE RANDOM FOREST NO SUPERVISADO
 # =============================================================================
 
-# Coerción de tipos
-traits[, 1:3]  <- lapply(traits[, 1:3],  as.numeric)
-traits[, 4:19] <- lapply(traits[, 4:19], factor)
+# Coerción de tipos — sin índices hardcodeados (robusto ante dummy data)
+cols_num <- names(which(sapply(traits, is.numeric)))
+cols_cat <- names(which(sapply(traits, function(x) is.character(x) || is.factor(x))))
+
+traits[, cols_num] <- lapply(traits[, cols_num, drop = FALSE], as.numeric)
+traits[, cols_cat] <- lapply(traits[, cols_cat, drop = FALSE], factor)
 
 # B5 CORREGIDO: scale() devuelve matrix; as.data.frame() preserva el data.frame
-traits[, 1:3] <- as.data.frame(scale(traits[, 1:3]))
+traits[, cols_num] <- as.data.frame(scale(traits[, cols_num, drop = FALSE]))
 
 set.seed(SEED)  # REPRODUCIBILIDAD: faltaba en script original
 rf_model <- randomForest::randomForest(
-  x          = traits[, 1:19],
+  x          = traits,
   importance = TRUE,
   ntree      = 500
 )
@@ -88,7 +92,7 @@ arbol_phylo <- ape::as.phylo(hc)
 ape::write.nexus(arbol_phylo, file = PATH_FTREE)
 
 # Dendrograma coloreado (visualización)
-dend   <- dendextend::as.dendrogram(hc)
+dend   <- stats::as.dendrogram(hc)
 groups <- stats::cutree(hc, k = 3)
 dend   <- dendextend::color_branches(dend, k = 3)
 factoextra::fviz_dend(dend, k = 3, cex = 0.3,
@@ -120,8 +124,8 @@ aranas_fp <- aranas |>
 # B8 CORREGIDO: id_cols nombrado explícitamente
 samp <- build_samp(aranas_fp, id_col = "LocAño")
 
-# Cargar tabla de zonas
-zonas <- readxl::read_excel(PATH_ZONAS)
+# Cargar tabla de zonas (ingesta defensiva)
+zonas <- load_zonas()
 
 # =============================================================================
 # 6. CARGA DEL ÁRBOL FUNCIONAL Y CÁLCULO DE fPD

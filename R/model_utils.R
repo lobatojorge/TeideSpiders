@@ -32,13 +32,32 @@ suppressPackageStartupMessages({
 # -----------------------------------------------------------------------------
 run_ses_pipeline <- function(ses_df, y_col, zonas, label,
                              out_dir = PLOT_DIR) {
-  # 1. Unir con zonas y factorizar
-  dat <- dplyr::bind_cols(ses_df, zonas) |>
-    tidyr::drop_na(dplyr::all_of(y_col)) |>
+  # 1. Unir con zonas por LocAño (join explícito, no bind_cols ciego)
+  ses_joined <- ses_df |>
+    tibble::rownames_to_column("LocAño") |>
+    dplyr::mutate(
+      localidad = sub("_.*", "", LocAño),
+      año       = sub(".*_", "", LocAño)
+    )
+
+  # zonas puede venir con columnas: Código_localidad / localidad, año, zona
+  zonas_norm <- zonas |>
+    dplyr::rename_with(~ "localidad",
+                       dplyr::any_of(c("Código_localidad", "localidad")))
+
+  dat <- ses_joined |>
+    dplyr::left_join(zonas_norm, by = c("localidad", "año")) |>
+    tidyr::drop_na(dplyr::all_of(c(y_col, "zona"))) |>
     dplyr::mutate(
       año  = factor(año),
       zona = factor(zona, levels = c("W", "E"))
     )
+
+  # Guardia: si algún factor tiene <2 niveles el GLM no puede correr
+  if (nlevels(dat$año) < 2 || nlevels(dat$zona) < 2) {
+    warning(label, ": año o zona con <2 niveles tras el join — saltando GLM.")
+    return(invisible(list(data = dat, model = NULL, dharma = NULL, contrasts = NULL)))
+  }
 
   # 2. Boxplot
   p <- ggplot2::ggplot(dat, ggplot2::aes(
