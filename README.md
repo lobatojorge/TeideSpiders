@@ -106,9 +106,12 @@ source("data/create_dummy_data.R")
 
 ## Análisis de datos y visor interactivo (Shiny)
 
-El flujo de trabajo asume que los datos ya están disponibles en formato Parquet. Para ejecutar todos los análisis y preparar el visor interactivo, ejecuta el siguiente bloque de código en orden:
+El pipeline comprueba automáticamente la disponibilidad de datos en cada capa (Parquet real → Excel crudo → dummy data). Para ejecutar todo el flujo en orden:
 
 ```R
+# 0. (Solo la primera vez, o si no hay datos reales) Generar datos sintéticos
+source("data/create_dummy_data.R")
+
 # 1. Ejecutar todos los análisis
 source("config.R")
 source("analysis/01_taxo.R")
@@ -126,6 +129,24 @@ shiny::runApp("app")
 ## Integración continua (CI/CD)
 
 El flujo configurado en GitHub Actions (`render-report.yml`) incorpora un sistema de cachés avanzado para `renv` (que evita tener que reinstalar los paquetes) y para los objetos analíticos. Cuando se suben cambios en el código o en los datos, GitHub Actions regenera automáticamente los archivos `.parquet` (o usa los sintéticos si procede), recalcula los índices de diversidad y compila el informe de Quarto, dejándolo disponible como un archivo descargable.
+
+## Bugs corregidos durante la refactorización
+
+Durante el proceso de refactorización se identificaron y corrigieron los siguientes errores presentes en los scripts originales:
+
+| ID | Script | Descripción |
+|----|--------|-------------|
+| B1 | `03_filo.R` | `force.ultrametric()` recibía un vector de métodos en lugar de uno solo |
+| B2 | `01_taxo.R` | Doble eliminación de columna en la construcción de la matriz de comunidad |
+| B3 | Todos | `setwd()` dentro de los scripts rompía la portabilidad; sustituido por `here::here()` |
+| B4 | Todos | Ausencia de `set.seed()` antes de cada permutación nula (ses.pd, ses.mpd…) |
+| B5 | `02_fun.R` | `scale()` devuelve una matriz; faltaba `as.data.frame()` para preservar el tipo |
+| B6 | `02_fun.R` | Dos llamadas a `hclust()` distintas producían árboles inconsistentes |
+| B7 | `02_fun.R` | Correlación de Pearson aplicada a variables ordinales/binarias (reemplazada por Spearman) |
+| B8 | Varios | `pivot_wider()` sin el argumento `id_cols` nombrado explícitamente |
+| B9 | `03_filo.R` | `dendextend::as.dendrogram()` no existe; la función correcta es `stats::as.dendrogram()` |
+| B10 | Varios | Mezcla de `xlsx` (requiere Java) y `openxlsx`; unificado en `openxlsx` |
+| B11 | `model_utils.R` | `bind_cols()` ciego entre SES y zonas asumía filas paralelas; sustituido por `left_join()` explícito |
 
 ## Licencia
 
