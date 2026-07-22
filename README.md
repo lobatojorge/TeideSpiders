@@ -60,6 +60,9 @@ graph TD
     
     H[objetos app_*.rds<br/>output/cache]:::proc
     I[app.R<br/>App Shiny interactiva]:::app
+    
+    J(create_dummy_data.R<br/>modo demo/defensivo):::script
+    K[datos sintéticos .parquet<br/>output/dummy_data]:::proc
 
     %% Conexiones
     A -->|solo lectura| B
@@ -71,6 +74,21 @@ graph TD
     C -->|lee| G
     G -->|guarda| H
     H -->|lee en memoria| I
+    J -->|genera| K
+    K -.->|fallback si no hay datos| D
+```
+
+## Modo Demo (Datos Sintéticos y Programación Defensiva)
+
+Dado que los archivos crudos originales (`arañas.xlsx`) se han excluido del repositorio público por motivos de privacidad y peso, el pipeline incorpora un **sistema de carga defensiva**. 
+
+Si las funciones de carga en `R/data_prep.R` no encuentran ni los archivos crudos ni sus derivados Parquet procesados, generarán un aviso de seguridad y cargarán automáticamente el conjunto de **datos sintéticos** (*dummy data*). Esto asegura que:
+- La integración continua en **GitHub Actions** compile siempre con éxito.
+- La **aplicación interactiva (Shiny)** pueda probarse inmediatamente sin depender de la base de datos real.
+
+Para regenerar estos datos de prueba manualmente, ejecuta:
+```R
+source("data/create_dummy_data.R")
 ```
 
 ## Primeros pasos y reproducibilidad
@@ -107,7 +125,7 @@ shiny::runApp("app")
 
 ## Integración continua (CI/CD)
 
-El flujo configurado en GitHub Actions (`render-report.yml`) incorpora un sistema de cachés avanzado para `renv` (que evita tener que reinstalar los paquetes) y para los objetos analíticos. Cuando se suben cambios en el código o en los datos, GitHub Actions regenera automáticamente los archivos `.parquet`, recalcula los índices de diversidad y compila el informe de Quarto, dejándolo disponible como un archivo descargable.
+El flujo configurado en GitHub Actions (`render-report.yml`) incorpora un sistema de cachés avanzado para `renv` (que evita tener que reinstalar los paquetes) y para los objetos analíticos. Cuando se suben cambios en el código o en los datos, GitHub Actions regenera automáticamente los archivos `.parquet` (o usa los sintéticos si procede), recalcula los índices de diversidad y compila el informe de Quarto, dejándolo disponible como un archivo descargable.
 
 ## Licencia
 
