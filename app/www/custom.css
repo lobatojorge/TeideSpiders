@@ -1,0 +1,113 @@
+/* =============================================================================
+   TeideSpiders Shiny App — Custom CSS
+   ============================================================================= */
+
+/* ── Tipografía ── */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Navbar ── */
+.navbar-brand {
+  letter-spacing: 0.02em;
+}
+
+/* ── Cards ── */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  border-color: rgba(88, 166, 255, 0.25);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+.card-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.85;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.card-header .fa, .card-header .bi {
+  opacity: 0.7;
+}
+
+/* ── Selectores e inputs ── */
+.selectize-control .selectize-input {
+  border-radius: 6px;
+}
+
+/* ── Checkboxes ── */
+.form-check-input:checked {
+  background-color: #58a6ff;
+  border-color: #58a6ff;
+}
+
+/* ── Badges ── */
+.badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3em 0.65em;
+  border-radius: 12px;
+}
+
+/* ── Tablas ── */
+table.table {
+  font-size: 0.85rem;
+}
+table.table th {
+  font-weight: 600;
+  opacity: 0.8;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Plotly containers ── */
+.js-plotly-plot .plotly {
+  border-radius: 8px;
+}
+.js-plotly-plot .modebar {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.js-plotly-plot:hover .modebar {
+  opacity: 1;
+}
+
+/* ── Tooltips de plotly ── */
+.hoverlayer .hovertext rect {
+  fill: #1c2128 !important;
+  stroke: rgba(255, 255, 255, 0.15) !important;
+}
+.hoverlayer .hovertext text {
+  fill: #c9d1d9 !important;
+}
+
+/* ── Footer ── */
+.app-footer {
+  font-size: 0.73rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.app-footer a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Separadores ── */
+hr {
+  border-color: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+  .card-header {
+    font-size: 0.72rem;
+  }
+}

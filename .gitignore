@@ -1,9 +1,18 @@
-# Datos regenerables (cacheados por CI/CD)
-output/cache/
+# Datos crudos (pueden ser grandes o contener datos sensibles)
+# Descomentar si NO se quieren versionar los datos originales:
+# data/raw/
+# Excluir SOLO el contenido, no el directorio (los .gitkeep se conservan)
+data/raw/*
+!data/raw/.gitkeep
 
-# Outputs de figuras y tablas (regenerables)
+# Datos procesados (derivados regenerables — siempre excluir)
+data/processed/*
+!data/processed/.gitkeep
+
+# Outputs regenerables
 output/plots/
 output/tables/
+output/cache/
 
 # Archivos temporales de R
 .Rhistory
@@ -22,6 +31,7 @@ reports/.quarto/
 # OS
 .DS_Store
 Thumbs.db
+
 
 # Datos sensibles (descomentar si se necesita)
 # data/*.xlsx

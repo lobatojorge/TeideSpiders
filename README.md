@@ -1,67 +1,114 @@
-# TeideSpiders: Diversidad de Arañas en el Parque Nacional del Teide (1995–2024)
+# TeideSpiders: Diversidad de arañas en el Parque Nacional del Teide (1995–2024)
 
-Este repositorio contiene el código y los análisis para el estudio de la diversidad taxonómica (TD), filogenética (PD) y funcional (FD) de las comunidades de arañas en el Parque Nacional del Teide, comparando datos de muestreos de 1995 y 2024.
+Este repositorio contiene el código y los análisis para evaluar la diversidad taxonómica (TD), filogenética (PD) y funcional (FD) de las comunidades de arañas en el Parque Nacional del Teide, comparando los datos obtenidos en los muestreos de 1995 y 2024.
 
-## Estructura del Proyecto
+El proyecto se ha estructurado siguiendo buenas prácticas de MLOps orientadas a la reproducibilidad: los datos en crudo se tratan como inmutables (se convierten a formato Parquet), el código es modular, se integra un sistema continuo de ejecución (CI/CD) con un uso intensivo de cachés, y se incluye un visor interactivo desarrollado en Shiny.
 
-El proyecto está diseñado para ser modular y reproducible, facilitando la integración continua y la generación automática de informes.
+## Estructura del proyecto
 
 ```text
 TeideSpiders/
-├── setup.R                          # Script de inicialización (ejecutar UNA vez para configurar 'renv' y mover datos)
-├── config.R                         # Configuración global (rutas, paletas, semillas)
+├── setup.R                          # Script de configuración inicial (mueve los datos a data/raw e inicializa renv)
+├── config.R                         # Configuración global (rutas a los archivos, paleta de colores, semillas)
+├── scripts/
+│   ├── ingest_data.R                # Transforma los archivos crudos (.xlsx) a formato Parquet (para acelerar la lectura)
+│   └── prepare_app_data.R           # Precalcula y guarda los objetos de datos que alimentan la app Shiny
 ├── R/
-│   ├── data_prep.R                  # Funciones comunes para carga y limpieza de datos
-│   ├── model_utils.R                # Funciones comunes de modelado estadístico y exportación
-│   └── plot_utils.R                 # Configuraciones gráficas y visualizaciones combinadas
+│   ├── data_prep.R                  # Funciones de limpieza y carga de datos
+│   ├── model_utils.R                # Funciones para el modelado estadístico y la exportación de resultados
+│   └── plot_utils.R                 # Funciones gráficas y estilos comunes
 ├── analysis/
-│   ├── 01_taxo.R                    # Script de análisis de diversidad taxonómica
-│   ├── 02_fun.R                     # Script de análisis de diversidad funcional
-│   └── 03_filo.R                    # Script de análisis de diversidad filogenética
+│   ├── 01_taxo.R                    # Análisis de diversidad taxonómica
+│   ├── 02_fun.R                     # Análisis de diversidad funcional
+│   └── 03_filo.R                    # Análisis de diversidad filogenética
+├── app/                             # Entorno aislado para la aplicación Shiny
+│   ├── app.R                        # Dashboard interactivo (solo lectura)
+│   ├── R/                           # Módulos de la app (Riqueza, NMDS, Métricas SES, Beta diversidad)
+│   └── www/                         # Recursos estáticos (estilos CSS)
 ├── reports/
-│   ├── _quarto.yml                  # Configuración de Quarto
-│   └── diversity_report.Qmd         # Documento Quarto para generar el informe final
-├── data/                            # Directorio para los datos brutos (no versionado si contiene datos sensibles)
-├── output/                          # Directorio para resultados (gráficos, tablas, caché)
-├── .github/workflows/               # Flujos de trabajo de CI/CD para GitHub Actions
-└── renv.lock                        # Archivo de bloqueo de dependencias para garantizar la reproducibilidad
+│   ├── _quarto.yml                  # Configuración del documento Quarto
+│   └── diversity_report.Qmd         # Informe final que integra todos los resultados
+├── data/                            # Carpeta local (no incluida en el control de versiones) para datos crudos y procesados
+├── output/                          # Resultados generados (gráficos, tablas y caché de la app)
+├── .github/workflows/               # Flujos de trabajo para GitHub Actions (CI/CD)
+└── renv.lock                        # Archivo con las versiones exactas de las dependencias
 ```
 
-## Requisitos y Reproducibilidad
+## Flujo de información
 
-Este proyecto utiliza `renv` para gestionar las dependencias de R. Para asegurar que los análisis se ejecutan con las mismas versiones de paquetes, sigue estos pasos:
+La arquitectura del proyecto garantiza que los datos fluyan en un único sentido, desde su forma más cruda hasta los productos finales, manteniendo siempre una fuente de verdad única y reproducible:
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/lobatojorge/TeideSpiders.git
-   cd TeideSpiders
-   ```
+```mermaid
+graph TD
+    %% Estilos
+    classDef raw fill:#2C3E50,stroke:#1A252F,color:#fff,stroke-width:2px;
+    classDef proc fill:#27AE60,stroke:#2ECC71,color:#fff,stroke-width:2px;
+    classDef script fill:#E67E22,stroke:#D35400,color:#fff,stroke-width:2px;
+    classDef output fill:#2980B9,stroke:#3498DB,color:#fff,stroke-width:2px;
+    classDef app fill:#8E44AD,stroke:#9B59B6,color:#fff,stroke-width:2px;
 
-2. Abre R o RStudio en el directorio raíz del proyecto.
+    %% Nodos
+    A[archivos crudos .xlsx<br/>data/raw]:::raw
+    B(ingest_data.R<br/>conversión y limpieza):::script
+    C[archivos .parquet<br/>data/processed]:::proc
+    
+    D(01_taxo.R<br/>02_fun.R<br/>03_filo.R):::script
+    E[modelos y tablas<br/>output/cache]:::output
+    
+    F[diversity_report.Qmd<br/>Reporte Quarto]:::output
+    G(prepare_app_data.R<br/>precalculo):::script
+    
+    H[objetos app_*.rds<br/>output/cache]:::proc
+    I[app.R<br/>App Shiny interactiva]:::app
 
-3. Restaura el entorno (esto descargará e instalará las versiones exactas de los paquetes necesarios):
+    %% Conexiones
+    A -->|solo lectura| B
+    B -->|escribe| C
+    C -->|lee| D
+    D -->|calcula y guarda| E
+    E -->|alimenta| F
+    E -->|procesa| G
+    C -->|lee| G
+    G -->|guarda| H
+    H -->|lee en memoria| I
+```
+
+## Primeros pasos y reproducibilidad
+
+1. **Clona el repositorio** y abre el proyecto en RStudio.
+2. **Restaura el entorno de trabajo**:
    ```R
    renv::restore()
    ```
-
-## Ejecución de los Análisis
-
-1. Asegúrate de tener los archivos de datos necesarios en la carpeta `data/` (`arañas.xlsx`, `matrizTraits.xlsx`, `zonas.xlsx`, `RAxML_bestTree.result`). Si es la primera vez que configuras el proyecto localmente, puedes usar el script `setup.R` que te guiará en este proceso.
-2. Puedes ejecutar los scripts de análisis individualmente en la consola de R:
+3. **Prepara los datos crudos**: Si tienes los archivos originales en formato `.xlsx` (`arañas.xlsx`, `matrizTraits.xlsx`, `zonas.xlsx`), cópialos a la carpeta `data/raw/` o ejecuta el script `setup.R` para automatizarlo.
+4. **Convierte los datos a formato Parquet** (solo es necesario hacerlo una vez):
    ```R
-   source("config.R"); source("analysis/01_taxo.R")
-   source("config.R"); source("analysis/02_fun.R")
-   source("config.R"); source("analysis/03_filo.R")
-   ```
-3. Para compilar el informe final con todos los resultados integrados:
-   ```R
-   quarto::quarto_render("reports/diversity_report.Qmd")
+   source("scripts/ingest_data.R")
    ```
 
-## Integración Continua (CI/CD)
+## Análisis de datos y visor interactivo (Shiny)
 
-El repositorio incluye un flujo de trabajo de GitHub Actions (`.github/workflows/render-report.yml`). Cada vez que se realizan cambios en los datos o en los scripts de análisis y se suben a la rama principal, se ejecutan automáticamente los análisis y se renderiza el informe Quarto. El informe generado está disponible como un *artifact* en la pestaña "Actions" de GitHub.
+El flujo de trabajo asume que los datos ya están disponibles en formato Parquet. Para ejecutar todos los análisis y preparar el visor interactivo, ejecuta el siguiente bloque de código en orden:
+
+```R
+# 1. Ejecutar todos los análisis
+source("config.R")
+source("analysis/01_taxo.R")
+source("analysis/02_fun.R")
+source("analysis/03_filo.R")
+
+# 2. Generar el informe estático con Quarto
+quarto::quarto_render("reports/diversity_report.Qmd")
+
+# 3. Preparar los datos para la app Shiny y lanzar el servidor local
+source("scripts/prepare_app_data.R")
+shiny::runApp("app")
+```
+
+## Integración continua (CI/CD)
+
+El flujo configurado en GitHub Actions (`render-report.yml`) incorpora un sistema de cachés avanzado para `renv` (que evita tener que reinstalar los paquetes) y para los objetos analíticos. Cuando se suben cambios en el código o en los datos, GitHub Actions regenera automáticamente los archivos `.parquet`, recalcula los índices de diversidad y compila el informe de Quarto, dejándolo disponible como un archivo descargable.
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto se distribuye bajo la Licencia MIT. Para más detalles, consulta el archivo `LICENSE`.

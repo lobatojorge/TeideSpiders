@@ -88,16 +88,18 @@ run_ses_pipeline <- function(ses_df, y_col, zonas, label,
 }
 
 # -----------------------------------------------------------------------------
-#' Exporta los 3 componentes de beta diversidad a Excel
+#' Exporta los 3 componentes de beta diversidad a Excel y guarda RDS
 #'
 #' Elimina los 9 bloques idénticos (Btotal/Brepl/Brich × taxo/fun/filo).
 #' Corrige B10: usa openxlsx consistentemente en lugar de mezclar xlsx/openxlsx.
+#' Añade saveRDS() para consumo rápido por la app Shiny sin re-parsear xlsx.
 #'
 #' @param beta_obj  Objeto BAT::beta() con slots $Btotal, $Brepl, $Brich
 #' @param prefix    Prefijo del archivo: "T" (taxo), "f" (fun), "p" (filo)
-#' @param out_dir   Directorio de salida (default: TABLE_DIR)
+#' @param out_dir   Directorio de salida Excel (default: TABLE_DIR)
 # -----------------------------------------------------------------------------
 export_beta <- function(beta_obj, prefix, out_dir = TABLE_DIR) {
+  # ── Excel (para análisis y revisión humana) ──────────────────────────────
   comps <- list(Btotal = beta_obj$Btotal,
                 Brepl  = beta_obj$Brepl,
                 Brich  = beta_obj$Brich)
@@ -106,6 +108,12 @@ export_beta <- function(beta_obj, prefix, out_dir = TABLE_DIR) {
     openxlsx::write.xlsx(as.data.frame(as.matrix(mat)), file = fpath)
     message("[export] ", basename(fpath))
   })
+
+  # ── RDS (para consumo por app Shiny — lectura instantánea) ───────────────
+  rds_path <- file.path(CACHE_DIR, paste0("beta_", prefix, ".rds"))
+  saveRDS(beta_obj, rds_path)
+  message("[export] ", basename(rds_path), " (RDS para Shiny)")
+
   invisible(NULL)
 }
 

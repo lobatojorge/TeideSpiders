@@ -10,29 +10,50 @@ suppressPackageStartupMessages({
   library(dplyr)
   library(tidyr)
   library(tibble)
+  library(arrow)
 })
 
 # -----------------------------------------------------------------------------
-#' Carga y limpia arañas.xlsx
+#' Carga y limpia el dataset principal de arañas
 #'
-#' @param path  Ruta al archivo Excel (default: PATH_ARANAS de config.R)
-#' @param extra_drop  Columnas adicionales a eliminar (character vector)
-#' @return tibble con columnas: Código_localidad, Año, Taxon, N_exx., Muestreo
+#' Si existe el archivo Parquet procesado, lo lee directamente (más rápido).
+#' Si no, lee el Excel crudo, elimina columnas no informativas y filtra NA.
+#' Resuelve la duplicación de código de limpieza que existía en los 3 scripts.
 #'
-#' Correcciones aplicadas:
-#'   - Unifica las 3 versiones distintas de limpieza presentes en los scripts
-#'     originales (taxo.R L22-36, fun.R L88-98, filo.R L23-29).
-#'   - Siempre renombra Año2 → Año (consistencia entre scripts).
-#'   - drop_na() en lugar de complete.cases() (más legible, mismo efecto).
+#' @param path Ruta al archivo crudo Excel (alias config.R).
+#' @param path_parquet Ruta al archivo Parquet (alias config.R).
+#' @param extra_drop Vector opcional de nombres de columna extra a eliminar.
+#' @return Un tibble limpio.
 # -----------------------------------------------------------------------------
-load_aranas <- function(path       = PATH_ARANAS,
-                        extra_drop = character(0)) {
-  drop <- unique(c(COLS_DROP, extra_drop))
-  readxl::read_excel(path) |>
-    dplyr::select(-dplyr::any_of(drop)) |>
+load_aranas <- function(path = PATH_ARANAS, path_parquet = PATH_ARANAS_PARQUET, extra_drop = NULL) {
+
+  if (file.exists(path_parquet)) {
+    # Carga rápida desde Parquet
+    df <- arrow::read_parquet(path_parquet)
+    
+    if (!is.null(extra_drop)) {
+      df <- dplyr::select(df, -dplyr::any_of(extra_drop))
+    }
+    
+    return(df)
+  }
+
+  # Fallback a Excel crudo si el Parquet no existe
+  if (!file.exists(path)) {
+    stop("Archivo crudo no encontrado: ", path)
+  }
+
+  df <- readxl::read_excel(path)
+
+  to_drop <- c(COLS_DROP, extra_drop)
+  df <- dplyr::select(df, -dplyr::any_of(to_drop))
+
+  df <- df |>
     dplyr::rename(Año = Año2) |>
     dplyr::mutate(N_exx. = as.numeric(N_exx.)) |>
     tidyr::drop_na()
+
+  return(df)
 }
 
 # -----------------------------------------------------------------------------
