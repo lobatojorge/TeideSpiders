@@ -1,5 +1,7 @@
 # Diversidad de arañas en el Parque Nacional del Teide (1995–2024)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22112883.svg)](https://doi.org/10.5281/zenodo.22112883)
+
 Este repositorio contiene el código y los análisis para evaluar la diversidad taxonómica (TD), filogenética (PD) y funcional (FD) de las comunidades de arañas en el Parque Nacional del Teide, comparando los datos obtenidos en los muestreos de 1995 y 2024.
 
 El proyecto se ha estructurado siguiendo buenas prácticas de MLOps orientadas a la reproducibilidad: los datos en crudo se tratan como inmutables (se convierten a formato Parquet), el código es modular, se integra un sistema continuo de ejecución (CI/CD) con un uso intensivo de cachés, y se incluye un visor interactivo desarrollado en Shiny.
